@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     end
     resources :authors, only: :show
     resources :genres, only: :show
+    resources :reviews, only: [:create, :show, :update, :destroy]
   end
 end
