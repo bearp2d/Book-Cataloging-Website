@@ -1,3 +1,5 @@
 json.array! @reviews do |review|
-  json.extract! review, :id, :rating, :comment, :suggest
+  json.set! review.id do
+    json.extract! review, :id, :rating, :comment, :suggest
+  end
 end
