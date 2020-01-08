@@ -10,6 +10,9 @@ User.destroy_all
 Author.destroy_all
 Genre.destroy_all
 Book.destroy_all
+Bookshelf.destroy_all
+BookSubscription.destroy_all
+Review.destroy_all
 
 # User
 User.create(email: 'test@gmail.com', password: 'test123', username: 'test_test')
@@ -23,7 +26,7 @@ Genre.create(name: 'non-fiction')
 Genre.create(name: 'fantasy')
 
 # Book
-Book.create!(
+Book.create(
     title: 'Siddhartha',
     author_id: Author.first.id,
     genre_id: Genre.first.id,
@@ -31,5 +34,17 @@ Book.create!(
     isbn: '0553208845',
     image: 'https://images-na.ssl-images-amazon.com/images/I/51ViESDNfIL._SX331_BO1,204,203,200_.jpg'
   )
+
+# BookShelf
+Bookshelf.create!(user_id: User.first.id, name: 'Want to read')
+Bookshelf.create!(user_id: User.first.id, name: 'Currently Reading')
+Bookshelf.create!(user_id: User.first.id, name: 'Read')
+
+
+# BookSubscription
+BookSubscription.create!(book_id: Book.first.id, bookshelf_id: Bookshelf.last.id)
+
+# Review
+Review.create!(comment: 'Great book!', rating: 5, suggest: true, user_id: User.first.id, book_id: Book.first.id)
 
 
