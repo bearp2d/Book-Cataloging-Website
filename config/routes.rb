@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   namespace :api, defaults: { format: :json } do
-    resources :books, only: [ :index, :show ]
-    resources :authors, only: [ :show ]
+    resources :books, only: [ :index, :show ] do
+      resources :reviews, only: :index
+    end
+    resources :authors, only: :show
   end
 end
