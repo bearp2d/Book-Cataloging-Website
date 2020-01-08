@@ -15,7 +15,8 @@ BookSubscription.destroy_all
 Review.destroy_all
 
 # User
-User.create(email: 'test@gmail.com', password: 'test123', username: 'test_test')
+User.create(email: 'test@gmail.com', password: 'test123', username: 'testtest')
+User.create(email: 'test1@gmail.com', password: 'test222', username: 'AbrahamLincoln')
 
 # Author
 Author.create(name: 'Herman Hesse')
@@ -55,6 +56,6 @@ BookSubscription.create!(book_id: Book.first.id, bookshelf_id: Bookshelf.last.id
 
 # Review
 Review.create!(comment: 'Great book!', rating: 5, suggest: true, user_id: User.first.id, book_id: Book.first.id)
-Review.create!(comment: 'Amazing!', rating: 5, suggest: true, user_id: User.first.id, book_id: Book.first.id)
+Review.create!(comment: 'Amazing!', rating: 5, suggest: true, user_id: User.second.id, book_id: Book.first.id)
 
 
