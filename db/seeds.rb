@@ -46,5 +46,6 @@ BookSubscription.create!(book_id: Book.first.id, bookshelf_id: Bookshelf.last.id
 
 # Review
 Review.create!(comment: 'Great book!', rating: 5, suggest: true, user_id: User.first.id, book_id: Book.first.id)
+Review.create!(comment: 'Amazing!', rating: 5, suggest: true, user_id: User.first.id, book_id: Book.first.id)
 
 
