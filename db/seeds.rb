@@ -18,7 +18,7 @@ Review.destroy_all
 User.create(email: 'test@gmail.com', password: 'test123', username: 'test_test')
 
 # Author
-Author.create(first_name: 'Herman', last_name: 'Hesse')
+Author.create(name: 'Herman Hesse')
 
 # Genre
 Genre.create(name: 'fiction')
