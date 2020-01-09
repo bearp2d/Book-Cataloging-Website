@@ -1,19 +1,35 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { fetchBooks } from '../actions/index';
+import Book from '../components/book';
 
 class BookList extends React.Component {
   componentDidMount() {
-    console.log('book list mounted')
+    this.props.fetchBooks();
+  }
+
+  renderBook() {
+    const { books } = this.props;
+    return books.map((book) => <Book book={book} key={book.id} />);
   }
 
   render() {
-    return (
-    <div>
-      <h1>Hi from book list</h1>
-    </div>
-    )
+      return (
+        <div>
+          { this.renderBook() }
+        </div>
+      );
   }
 }
 
-export default BookList;
+const mapStateToProps = (state) => ({
+  books: state.books,
+});
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchBooks }, dispatch);
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(BookList);
