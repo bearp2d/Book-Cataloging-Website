@@ -1,5 +1,4 @@
-json.extract! @book, :id, :title, :author_id, :isbn, :description, :image
-json.genre @book.genre.name
+json.extract! @book, :id, :title, :author_id, :isbn, :description, :image, :genre
 json.reviews @book.reviews do |review|
   json.extract! review, :id, :comment, :rating, :user_id, :suggest
   json.user do
