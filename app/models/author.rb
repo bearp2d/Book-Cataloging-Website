@@ -1,21 +1,22 @@
 class Author < ApplicationRecord
   validates :name, presence: true
 
-  # attr_accessor :authors
-
   has_many :books, dependent: :destroy
   has_many :genres,
            through: :books
 
   def similar_authors
-    popular_genre = most_written_genre
+    popular_genre = top_genre
 
-    popular_genre.authors.map do |author|
-      return author unless author == self
+    authors = []
+    popular_genre.authors.each do |author|
+      authors << author unless author == self
     end
+
+    authors
   end
 
-  def most_written_genre
+  def top_genre
     genres_count = calculate_genres
     genres_count.key(genres_count.values.max)
   end
