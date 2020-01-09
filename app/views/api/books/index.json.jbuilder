@@ -1,3 +1,4 @@
+json.ignore_nil!
 json.array! @books do |book|
   json.partial! 'book', book: book
   json.reviews book.reviews do |review|
