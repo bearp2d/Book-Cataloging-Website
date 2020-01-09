@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   get  "books/:id", to: 'pages#home'
+  get  "authors/:id", to: 'pages#home'
 
   namespace :api, defaults: { format: :json } do
     resources :users, only: :show  do
