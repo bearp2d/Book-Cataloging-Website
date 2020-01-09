@@ -1,3 +1,5 @@
 json.array! @bookshelves.each do |bookshelf|
-  json.extract! bookshelf, :id, :name, :books, :user_id
+  json.set! bookshelf.id do
+    json.partial! 'bookshelf', bookshelf: bookshelf
+  end
 end
