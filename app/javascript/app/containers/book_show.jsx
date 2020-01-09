@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom';
 import { fetchBook } from '../actions/index';
-// maybe don't need
-// import Book from '../components/book'
 
 class BookShow extends React.Component {
   componentDidMount() {
@@ -26,7 +25,11 @@ class BookShow extends React.Component {
       return (
        <div key={book.id}>
          <h1>{book.title}</h1>
-         <img src={book.image} alt="Book Cover"/>
+         <img src={book.image} alt="Book Cover" />
+         <p>by:</p>
+         <Link to={`/authors/${book.author.id}`}>
+          {book.author.name}
+          </Link>
          <p>{book.description}</p>
        </div>
       );
