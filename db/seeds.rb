@@ -45,14 +45,9 @@ Book.create(
     image: 'https://prodimage.images-bn.com/pimages/9780143110439_p0_v1_s550x406.jpg'
   )
 
-# BookShelf
-Bookshelf.create!(user_id: User.first.id, name: 'Want to read')
-Bookshelf.create!(user_id: User.first.id, name: 'Currently Reading')
-Bookshelf.create!(user_id: User.first.id, name: 'Read')
-
-
 # BookSubscription
-BookSubscription.create!(book_id: Book.first.id, bookshelf_id: Bookshelf.last.id)
+BookSubscription.create!(book_id: Book.first.id, bookshelf_id: User.first.bookshelves.last.id)
+BookSubscription.create!(book_id: Book.second.id, bookshelf_id: User.first.bookshelves.last.id)
 
 # Review
 Review.create!(comment: 'Great book!', rating: 5, suggest: true, user_id: User.first.id, book_id: Book.first.id)
