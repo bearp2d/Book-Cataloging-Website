@@ -44,7 +44,7 @@ class AuthorShow extends React.Component {
     if (author) {
       return (
         author.similar_authors.map((sa) => {
-          <h4>{sa.name}</h4>
+          return (<p>{sa.name}</p>)
         })
       );
     }
@@ -58,6 +58,7 @@ class AuthorShow extends React.Component {
         <div className="author-books-list">
           { this.renderAuthorBooks() }
          </div>
+         <h3>Similar Authors:</h3>
           { this.renderSimilarAuthors() }
         </div>
       );
