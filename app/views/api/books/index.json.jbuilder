@@ -1,3 +1,5 @@
 json.array! @books do |book|
-  json.extract! book, :id, :title, :author_id, :genre_id, :image
+  json.set! book.id do
+   json.partial! 'book', book: book
+  end
 end
