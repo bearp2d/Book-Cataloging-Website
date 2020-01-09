@@ -12,16 +12,49 @@ class BookShow extends React.Component {
     }
   }
 
+
+// navigate to another book from this page
   componentDidUpdate(nextProps) {
     if (this.props.match.params.id !== nextProps.match.params.id) {
       this.props.fetchBook(nextProps.match.params.id);
     }
   }
 
+  renderBook() {
+    const { book } = this.props;
+    if (book) {
+      return (
+       <div key={book.id}>
+         <h1>{book.title}</h1>
+         <img src={book.image} alt="Book Cover"/>
+         <p>{book.description}</p>
+       </div>
+      );
+    }
+  }
+
+  renderReviews() {
+    const { book } = this.props;
+    if (book) {
+      return book.reviews.map((review) => {
+        return (
+          <li key={review.id}>
+            <p>{review.comment}</p>
+            <p>({review.user.username})</p>
+          </li>
+        );
+      });
+    }
+  }
+
   render() {
+    // const { book } = this.props;
       return (
         <div>
-          <h1>hi</h1>
+          {this.renderBook()}
+        <div className="book-reviews">
+          { this.renderReviews() }
+        </div>
         </div>
       );
   }
@@ -30,7 +63,7 @@ class BookShow extends React.Component {
 // maybe don't need
 function mapStateToProps(state, ownProps) {
   const idFromUrl = parseInt(ownProps.match.params.id, 10);
-  const book = state.books[idFromUrl];
+  const book = state.books.find((b) => b.id === idFromUrl);
   return { book };
 }
 
