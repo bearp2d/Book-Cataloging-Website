@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import { fetchAuthor } from '../actions/index';
 
+
 import Book from '../components/book';
 
 class AuthorShow extends React.Component {
@@ -13,9 +14,12 @@ class AuthorShow extends React.Component {
     }
   }
 
-  componentDidUpdate(nextProps) {
-    if (this.props.match.params.id !== nextProps.match.params.id) {
-      this.props.fetchAuthor(nextProps.match.params.id);
+  componentWillReceiveProps(nextProps) {
+    const currentId = this.props.match.params.id;
+    const nextId = nextProps.match.params.id;
+
+    if (currentId !== nextId) {
+      this.props.fetchAuthor(nextId);
     }
   }
 
@@ -44,7 +48,11 @@ class AuthorShow extends React.Component {
     if (author) {
       return (
         author.similar_authors.map((sa) => {
-          return (<p>{sa.name}</p>)
+          return (
+            <Link key={sa.id} to={`/authors/${sa.id}`}>
+              <p>{sa.name}</p>
+            </Link>
+            );
         })
       );
     }
@@ -77,4 +85,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthorShow);
-
