@@ -1,5 +1,14 @@
 json.ignore_nil!
-json.extract! @book, :id, :title, :author, :isbn, :description, :image, :genre, :average_rating
+json.extract! @book, :id,
+                     :title,
+                     :author,
+                     :isbn,
+                     :description,
+                     :image,
+                     :genre,
+                     :average_rating,
+                     :review_count,
+                     :suggest_percentage
 json.reviews @book.reviews do |review|
   json.extract! review, :id, :comment, :rating, :user_id, :suggest
   json.user do
