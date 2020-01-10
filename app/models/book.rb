@@ -11,4 +11,14 @@ class Book < ApplicationRecord
   has_many :book_subscriptions, dependent: :destroy
   has_many :bookshelves,
            through: :book_subscriptions
+
+  def average_rating
+    (ratings.reduce(:+) / ((ratings.count * 100.0).round / 100.0)).round(2)
+  end
+
+  private
+
+  def ratings
+    self.reviews.map(&:rating)
+  end
 end
