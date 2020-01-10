@@ -22,7 +22,7 @@ class Book < ApplicationRecord
   end
 
   def suggest_percentage
-    all_suggestions_count < 1 ? 'none' : ((suggest_true_count.to_f / all_suggestions_count.to_f) * 100).round
+    all_suggestions_count < 1 ? 0 : ((suggest_true_count.to_f / all_suggestions_count.to_f) * 100).round
   end
 
   private
