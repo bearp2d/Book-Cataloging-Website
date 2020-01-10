@@ -15,18 +15,28 @@ class BookShow extends React.Component {
     const { book } = this.props;
     if (book) {
       return (
-       <div key={book.id}>
-         <h1>{book.title}</h1>
-         <p>Average: Rating: {book.average_rating}</p>
-         <p>{book.review_count} reviews</p>
-         <p>Suggested by {book.suggest_percentage}%</p>
-         <img src={book.image} alt="Book Cover" />
-         <p>by:</p>
-         <Link key={book.author.id} to={`/authors/${book.author.id}`}>
-          {book.author.name}
-          </Link>
-         <p>{book.description}</p>
-       </div>
+        <div className="book-info" key={book.id}>
+          <div className="book-info-left">
+            <img src={book.image} alt="Book Cover" />
+            <button className="btn-dark">Add & Rate (todo)</button>
+          </div>
+          <div className="book-info-right">
+            <div className="book-stats">
+              <h1>{book.title}</h1>
+              <p>Average: Rating: {book.average_rating}</p>
+              <p>{book.review_count} reviews</p>
+              <p>Suggested by {book.suggest_percentage}%</p>
+
+              <p>by:</p>
+              <Link key={book.author.id} to={`/authors/${book.author.id}`}>
+               {book.author.name}
+               </Link>
+               </div>
+            <div className="book-description">
+              <p>{book.description}</p>
+            </div>
+          </div>
+        </div>
       );
     }
   }
@@ -47,14 +57,18 @@ class BookShow extends React.Component {
 
   render() {
     // const { book } = this.props;
-      return (
-        <div>
-          {this.renderBook()}
-        <div className="book-reviews">
-          { this.renderReviews() }
-        </div>
-        </div>
-      );
+    return (
+      <div className="main-content-container">
+        <div className="main-content">
+
+              {this.renderBook()}
+
+           <div className="book-reviews">
+            { this.renderReviews() }
+            </div>
+         </div>
+      </div>
+    );
   }
 }
 
