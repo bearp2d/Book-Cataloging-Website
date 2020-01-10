@@ -22,7 +22,8 @@ class Author < ApplicationRecord
   end
 
   def author_rating
-    ratings.any? ? (ratings.reduce(:+) / ((ratings.count * 100.0) / 100.0)).round(2) : 'none'
+    return 'none' if ratings.include?('none')
+    (ratings.reduce(:+) / ((ratings.count * 100.0) / 100.0)).round(2)
   end
 
   private
