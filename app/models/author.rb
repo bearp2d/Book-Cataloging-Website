@@ -21,6 +21,10 @@ class Author < ApplicationRecord
     genres_count.key(genres_count.values.max)
   end
 
+  def author_rating
+    ratings.any? ? (ratings.reduce(:+) / ((ratings.count * 100.0) / 100.0)).round(2) : 'none'
+  end
+
   private
 
   def calculate_genres
@@ -31,5 +35,9 @@ class Author < ApplicationRecord
     end
 
     @genres_count
+  end
+
+  def ratings
+    self.books.map(&:average_rating)
   end
 end
