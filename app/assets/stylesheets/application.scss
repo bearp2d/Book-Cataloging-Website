@@ -8,6 +8,14 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-// Your CSS partials
+// CSS partials
 @import "components/index";
 @import "pages/index";
+
+.main-content-container {
+  width: 100%;
+}
+
+.main-content {
+  margin: 36px;
+}
