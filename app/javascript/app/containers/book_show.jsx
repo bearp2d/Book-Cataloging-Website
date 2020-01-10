@@ -11,23 +11,18 @@ class BookShow extends React.Component {
     }
   }
 
-
-// navigate to another book from this page
-  componentDidUpdate(nextProps) {
-    if (this.props.match.params.id !== nextProps.match.params.id) {
-      this.props.fetchBook(nextProps.match.params.id);
-    }
-  }
-
   renderBook() {
     const { book } = this.props;
     if (book) {
       return (
        <div key={book.id}>
          <h1>{book.title}</h1>
+         <p>Average: Rating: {book.average_rating}</p>
+         <p>{book.review_count} reviews</p>
+         <p>Suggested by {book.suggest_percentage}%</p>
          <img src={book.image} alt="Book Cover" />
          <p>by:</p>
-         <Link to={`/authors/${book.author.id}`}>
+         <Link key={book.author.id} to={`/authors/${book.author.id}`}>
           {book.author.name}
           </Link>
          <p>{book.description}</p>
