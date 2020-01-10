@@ -13,7 +13,6 @@ import BookList from './containers/book_list';
 import BookShow from './containers/book_show';
 import AuthorShow from './containers/author_show';
 
-
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
