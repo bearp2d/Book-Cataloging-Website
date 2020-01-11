@@ -7,6 +7,7 @@ import { fetchBook, fetchAuthor } from '../actions/index';
 import AuthorProfile from '../components/book_show/author_profile';
 import BookInfo from '../components/book_show/book_info';
 import SimilarAuthors from '../components/book_show/similar_authors';
+import BookReviews from '../components/book_show/book_reviews';
 
 
 class BookShow extends React.Component {
@@ -30,19 +31,19 @@ class BookShow extends React.Component {
   }
 
 
-  renderReviews() {
-    const { book } = this.props;
-    if (book) {
-      return book.reviews.map((review) => {
-        return (
-          <li key={review.id}>
-            <p>{review.comment}</p>
-            <p>({review.user.username})</p>
-          </li>
-        );
-      });
-    }
-  }
+  // renderReviews() {
+  //   const { book } = this.props;
+  //   if (book) {
+  //     return book.reviews.map((review) => {
+  //       return (
+  //         <li key={review.id}>
+  //           <p>{review.comment}</p>
+  //           <p>({review.user.username})</p>
+  //         </li>
+  //       );
+  //     });
+  //   }
+  // }
 
   render() {
     return (
@@ -50,10 +51,10 @@ class BookShow extends React.Component {
         <div className="main-content">
           <div className="book-details-container">
             <section className="left-container">
-              <BookInfo book={this.props.book}/>
+              <BookInfo book={this.props.book} />
               <div className="book-reviews">
-               { this.renderReviews() }
-               </div>
+                <BookReviews book={this.props.book} />
+              </div>
             </section>
             <section className="right-container">
               <AuthorProfile book={this.props.book} author={this.props.author}/>
