@@ -16,3 +16,6 @@ json.reviews @book.reviews do |review|
     json.username review.user.username
   end
 end
+json.author_books @book.other_books do |books|
+  json.extract! books, :id, :title, :image, :average_rating, :suggest_percentage
+end
