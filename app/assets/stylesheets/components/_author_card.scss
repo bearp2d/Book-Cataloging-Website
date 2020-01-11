@@ -1,0 +1,73 @@
+.about-author-card {
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
+  h5 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+  }
+}
+
+.about-author-title {
+  padding-bottom: 16px;
+  padding-top: 24px;
+  border-bottom: 1px solid gray;
+}
+
+.about-author-profile {
+  padding: 16px 0px;
+  text-align: center;
+  transition: all .2s ease-in-out;
+
+
+  img {
+    height: 100%;
+    width: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    padding: 16px 8px;
+  }
+
+  a {
+    color: black;
+  }
+
+  &:hover {
+    opacity: .8;
+    transform: scale(1.1);
+  }
+}
+
+.about-author-description {
+  height: 200px;
+  padding: 18px 24px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.about-author-books {
+  height: 300px;
+  padding: 18px;
+}
+
+.other-books-title {
+  padding-bottom: 16px;
+  padding-top: 8px;
+  border-bottom: 1px solid gray;
+  text-align: center;
+}

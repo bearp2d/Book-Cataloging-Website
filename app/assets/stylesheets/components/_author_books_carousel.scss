@@ -1,0 +1,42 @@
+.carousel-item {
+  img {
+
+    height: 100px;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+      opacity: .8;
+      transform: scale(1.1);
+    }
+  }
+}
+
+.carousel-single-image {
+  display: flex;
+  justify-content: center;
+  img {
+    height: 140px;
+  }
+}
+
+.carousel {
+  width: 240px;
+  height: 300px;
+  padding-top: 20px;
+  img {
+    // height: 124px;
+  }
+}
+
+.slick-prev:before {
+  color: black;
+}
+
+.slick-next:before {
+  color: black;
+}
+
+.carousel-message {
+  text-align: center;
+}
+
