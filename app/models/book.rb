@@ -1,4 +1,3 @@
-require 'byebug'
 class Book < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
@@ -25,6 +24,7 @@ class Book < ApplicationRecord
     all_suggestions_count < 1 ? 0 : ((suggest_true_count.to_f / all_suggestions_count.to_f) * 100).round
   end
 
+  # all books from book's author
   def other_books
     other_books = []
 
@@ -35,6 +35,7 @@ class Book < ApplicationRecord
     other_books
   end
 
+  # Books from same genre
   def similar_books
     genre.books
   end
