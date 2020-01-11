@@ -10,7 +10,9 @@ class BookShow extends React.Component {
   componentDidMount() {
     if (!this.props.book) {
       this.props.fetchBook(this.props.match.params.id);
+      // this.props.fetchAuthor(book.author.id);
     }
+
   }
 
   componentWillReceiveProps(nextProps) {
@@ -21,6 +23,13 @@ class BookShow extends React.Component {
       this.props.fetchBook(nextId);
     }
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (!this.props.author) {
+    this.props.fetchAuthor(this.props.book.author.id);
+  }
+  }
+
 
   renderBook() {
     const { book } = this.props;
@@ -75,24 +84,25 @@ class BookShow extends React.Component {
   }
 
   renderAuthor() {
-    const { book } = this.props;
-    if (book) {
+    const { author } = this.props;
+    console.log(author);
+    if (author) {
       return (
         <div className="about-author-card">
           <section className="about-author-title">
-            <h6>About {book.author.name}</h6>
+            <h6>About {author.name}</h6>
           </section>
           <section className="about-author-profile">
-            <Link to={`/authors/${book.author.id}`} key={book.author.id}>
+            <Link to={`/authors/${author.id}`} key={author.id}>
             <img src="https://uploads.scratch.mit.edu/users/avatars/395/5762.png" alt="author"/>
-            <h5>{book.author.name}</h5>
+            <h5>{author.name}</h5>
             </Link>
           </section>
           <section className="about-author-description">
             <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem maiores, iusto sapiente? Consequuntur saepe ea corporis accusamus ipsum nam officia eligendi debitis harum est reprehenderit iusto repellendus, fugiat, cupiditate tempora.</h6>
           </section>
           <section className="about-author-books">
-              <h6 className="other-books-title">Other Books By This author</h6>
+              <h6 className="other-books-title">Other Books By {author.name}</h6>
               <div className="carousel">
               { this.renderCarousel() }
             </div>
@@ -146,6 +156,7 @@ function mapStateToProps(state, ownProps) {
   const book = state.books.find((b) => b.id === idFromUrl);
   return {
     book,
+    author: state.authors[0],
   };
 }
 
