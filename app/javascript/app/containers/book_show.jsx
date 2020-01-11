@@ -4,14 +4,15 @@ import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import { fetchBook, fetchAuthor } from '../actions/index';
 import Carousel from '../components/book_carousel';
+import AuthorCarousel from '../components/author_carousel';
 import Book from '../components/book';
 
 class BookShow extends React.Component {
   componentDidMount() {
-    if (!this.props.book) {
+    // if (!this.props.book) {
       this.props.fetchBook(this.props.match.params.id);
       // this.props.fetchAuthor(book.author.id);
-    }
+    // }
 
   }
 
@@ -48,7 +49,7 @@ class BookShow extends React.Component {
               <p>Suggested by {book.suggest_percentage}%</p>
 
               <p>by:</p>
-              <Link key={book.author.id} to={`/authors/${book.author.id}`}>
+              <Link style={{textDecoration: 'none'}}key={book.author.id} to={`/authors/${book.author.id}`}>
                {book.author.name}
                </Link>
             </div>
@@ -80,12 +81,11 @@ class BookShow extends React.Component {
         <p className="carousel-message">This author doesn't have any other books</p>
       );
     }
-
   }
+
 
   renderAuthor() {
     const { author } = this.props;
-    console.log(author);
     if (author) {
       return (
         <div className="about-author-card">
@@ -93,7 +93,7 @@ class BookShow extends React.Component {
             <h6>About {author.name}</h6>
           </section>
           <section className="about-author-profile">
-            <Link to={`/authors/${author.id}`} key={author.id}>
+            <Link style={{textDecoration: 'none'}}to={`/authors/${author.id}`} key={author.id}>
             <img src="https://uploads.scratch.mit.edu/users/avatars/395/5762.png" alt="author"/>
             <h5>{author.name}</h5>
             </Link>
@@ -126,11 +126,53 @@ class BookShow extends React.Component {
     }
   }
 
+  renderSimilarAuthorCarousel() {
+    const { author } = this.props;
+    if (author && author.similar_authors.length > 2) {
+      return (
+        <AuthorCarousel author={author} />
+      );
+    }
+    if (author && author.similar_authors.length === 1) {
+      return (
+        <div className="carousel-single-image">
+        <Link style={{textDecoration: 'none'}}key={author.similar_authors[0].id} to={`/authors/${author.similar_authors[0].id}`}>
+          <div className='similar-author-item'>
+
+              <img src={author.similar_authors[0].image} alt=""/>
+              <h6>{author.similar_authors[0].name}</h6>
+
+          </div>
+          </Link>
+        </div>
+      );
+    }
+    if (author && author.similar_authors.length <= 1) {
+      return (
+        <p className="carousel-message">This author has no similar authors...</p>
+      );
+    }
+  }
+
+  renderSimilarAuthors() {
+    const { author } = this.props;
+    if (author) {
+      return (
+        <div className="similar-author-card">
+          <section className="similar-author-title">
+            <h6>
+              Authors like {author.name}
+            </h6>
+          </section>
+          { this.renderSimilarAuthorCarousel() }
+        </div>
+      );
+    }
+  }
 
 
   render() {
     return (
-
       <div className="main-content-container">
         <div className="main-content">
           <div className="book-details-container">
@@ -142,6 +184,9 @@ class BookShow extends React.Component {
             </section>
             <section className="right-container">
               { this.renderAuthor() }
+              <div className="similar-author-card">
+                { this.renderSimilarAuthors() }
+              </div>
             </section>
           </div>
          </div>
