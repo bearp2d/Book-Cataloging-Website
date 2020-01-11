@@ -14,6 +14,12 @@
 .carousel-single-image {
   display: flex;
   justify-content: center;
+  transition: all .2s ease-in-out;
+  &:hover {
+    opacity: .8;
+    transform: scale(1.1);
+  }
+
   img {
     height: 140px;
   }
