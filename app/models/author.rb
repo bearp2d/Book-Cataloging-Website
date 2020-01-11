@@ -13,7 +13,7 @@ class Author < ApplicationRecord
       authors << author unless author == self
     end
 
-    authors
+    authors.uniq
   end
 
   def top_genre
