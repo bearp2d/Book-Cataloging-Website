@@ -35,6 +35,10 @@ class Book < ApplicationRecord
     other_books
   end
 
+  def similar_books
+    genre.books
+  end
+
   private
 
   def all_suggestions_count
