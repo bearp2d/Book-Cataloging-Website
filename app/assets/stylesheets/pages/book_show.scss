@@ -1,5 +1,19 @@
+.book-details-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+// Left Container
+.left-container {
+  width: 65%;
+  overflow: hidden;
+  margin-top: 16px;
+}
+
+// Book Info
+
 .book-info {
-  background: red;
   display: flex;
 }
 
@@ -9,8 +23,9 @@
   align-items: center;
 
   img {
-    max-width: 272px;
+    max-width: 240px;
   }
+
   button {
     width: 75%;
     margin: 16px;
@@ -20,9 +35,14 @@
 .book-info-right {
   display: flex;
   flex-direction: column;
-  padding-left: 14px;
+  padding-left: 28px;
 }
 
-.book-stats {
+// Right Container
 
+.right-container {
+  width: 30%;
 }
+
+
+
