@@ -25,6 +25,16 @@ class Book < ApplicationRecord
     all_suggestions_count < 1 ? 0 : ((suggest_true_count.to_f / all_suggestions_count.to_f) * 100).round
   end
 
+  def other_books
+    other_books = []
+
+    author.books.each do |book|
+      other_books << book unless book == self
+    end
+
+    other_books
+  end
+
   private
 
   def all_suggestions_count
