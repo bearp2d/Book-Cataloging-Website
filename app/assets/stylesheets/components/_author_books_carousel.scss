@@ -1,8 +1,9 @@
 .carousel-item {
   img {
-
     height: 100px;
+    max-width: 65px;
     transition: all .2s ease-in-out;
+    object-fit: cover;
 
     &:hover {
       opacity: .8;
