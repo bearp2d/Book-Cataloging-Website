@@ -19,8 +19,6 @@ class BookShow extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('mount')
-    console.log(this.props)
     const currentId = this.props.match.params.id;
     const nextId = nextProps.match.params.id;
 
@@ -31,7 +29,6 @@ class BookShow extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-
     if (!this.props.author) {
       this.props.fetchAuthor(this.props.book.author.id);
     }
