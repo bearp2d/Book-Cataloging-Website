@@ -37,3 +37,16 @@ export const fetchAuthor = (id) => {
     payload: promise,
   };
 };
+
+// Review Actions
+export const FETCH_REVIEWS = 'FETCH_REVIEWS';
+
+export const fetchReviews = (bookId) => {
+  const promise = fetch(`/api/books/${bookId}/reviews`)
+    .then((response) => response.json());
+
+  return {
+    type: FETCH_REVIEWS,
+    payload: promise,
+  };
+};
