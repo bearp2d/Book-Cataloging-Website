@@ -36,8 +36,13 @@ class Book < ApplicationRecord
   end
 
   # Books from same genre
-  def similar_books
-    genre.books
+  def suggested_books
+    books = genre.books.sample(6)
+      until books == books.uniq
+        books = genre.books.sample(6)
+      end
+
+    books
   end
 
   private
