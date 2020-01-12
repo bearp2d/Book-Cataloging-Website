@@ -8,7 +8,8 @@ json.extract! @book, :id,
                      :genre,
                      :average_rating,
                      :review_count,
-                     :suggest_percentage
+                     :suggest_percentage,
+                     :suggested_books
 json.reviews @book.reviews do |review|
   json.extract! review, :id, :comment, :rating, :user_id, :suggest
   json.user do
