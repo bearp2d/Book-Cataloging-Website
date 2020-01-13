@@ -1,0 +1,65 @@
+.book-reviews-container {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+}
+
+.book-reviews-title {
+  border-bottom: 1px solid grey;
+}
+
+.book-review {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.book-review img {
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-left: 20px;
+}
+
+.book-review h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.book-review p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.book-review .user-info {
+  width: 100%;
+  padding: 16px;
+  display: flex;
+}
+
+.user-info .rating {
+  width: 30%;
+}
+.book-review .comment {
+  margin-left: 80px;
+  overflow: scroll;
+  width: 40%;
+}
+
+.empty-review-message {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.fa-star {
+  color: #FDCC0D;
+}
