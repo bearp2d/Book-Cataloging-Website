@@ -1,7 +1,13 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
+
+
 class BookInfo extends React.Component {
+
+  calculateStarRating(rating) {
+    return [...Array(rating)].map((e, i) => <i className="fas fa-star"></i>);
+  }
 
   renderBook() {
     const { book } = this.props;
@@ -15,7 +21,7 @@ class BookInfo extends React.Component {
           <div className="book-info-right">
             <div className="book-stats">
               <h1>{book.title}</h1>
-              <p>Average: Rating: {book.average_rating}</p>
+              <p>Average Rating: {this.calculateStarRating(book.average_rating)}</p>
               <p>{book.review_count} reviews</p>
               <p>Suggested by {book.suggest_percentage}%</p>
 
