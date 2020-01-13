@@ -5,7 +5,6 @@ import Book from '../book';
 
 class AuthorProfile extends React.Component {
 
-
   renderCarousel() {
     const { book } = this.props;
     if (book && book.author_books.length > 2) {
