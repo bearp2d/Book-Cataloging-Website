@@ -10,6 +10,7 @@ import BookInfo from '../components/book_show/book_info';
 import SimilarAuthors from '../components/book_show/similar_authors';
 import BookReviews from '../components/book_show/book_reviews';
 import SuggestedBooks from '../components/book_show/suggested_books';
+import ReviewList from './review_list';
 
 
 class BookShow extends React.Component {
@@ -46,7 +47,7 @@ class BookShow extends React.Component {
               <BookInfo book={this.props.book} />
               <SuggestedBooks book={this.props.book} author={this.props.author} />
               <div className="book-reviews">
-                <BookReviews book={this.props.book} />
+                <BookReviews book={this.props.book}/>
               </div>
             </section>
             <section className="right-container">
