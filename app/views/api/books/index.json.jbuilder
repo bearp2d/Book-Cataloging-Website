@@ -6,6 +6,7 @@ json.array! @books do |book|
     json.user do
       json.id review.user.id
       json.username review.user.username
+      json.image review.user.image
     end
   end
 end
