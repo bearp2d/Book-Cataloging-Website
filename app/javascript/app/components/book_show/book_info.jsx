@@ -6,8 +6,13 @@ import { Link, withRouter } from 'react-router-dom';
 class BookInfo extends React.Component {
 
   calculateStarRating(rating) {
-    return [...Array(rating)].map((e, i) => <i className="fas fa-star"></i>);
+    if (rating > 0) {
+      return [...Array(rating)].map((e, i) => <i className="fas fa-star"></i>);
+    }
+
+    return <span><i>N/A</i></span>;
   }
+
 
   renderBook() {
     const { book } = this.props;
