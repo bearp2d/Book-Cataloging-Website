@@ -3,6 +3,12 @@
 export const FETCH_BOOKS = 'FETCH_BOOKS';
 export const FETCH_BOOK = 'FETCH_BOOK';
 
+export const FETCH_AUTHOR = 'FETCH_AUTHOR';
+export const FETCH_REVIEWS = 'FETCH_REVIEWS';
+export const CREATE_REVIEW = 'CREATE_REVIEW';
+export const CREATE_SUBSCRIPTION = 'CREATE_SUBSCRIPTION';
+export const FETCH_SHELVES = 'FETCH_SHELVES';
+
 export const fetchBooks = () => {
   const promise = fetch('/api/books')
     .then((response) => response.json());
@@ -25,9 +31,6 @@ export const fetchBook = (id) => {
 
 // AUTHOR ACTIONS
 
-// export const FETCH_AUTHORS = 'FETCH_AUTHORS';
-export const FETCH_AUTHOR = 'FETCH_AUTHOR';
-
 export const fetchAuthor = (id) => {
   const promise = fetch(`/api/authors/${id}`)
     .then((response) => response.json());
@@ -39,7 +42,7 @@ export const fetchAuthor = (id) => {
 };
 
 // Review Actions
-export const FETCH_REVIEWS = 'FETCH_REVIEWS';
+
 
 export const fetchReviews = (bookId) => {
   const promise = fetch(`/api/books/${bookId}/reviews`)
@@ -50,8 +53,6 @@ export const fetchReviews = (bookId) => {
     payload: promise,
   };
 };
-
-export const CREATE_REVIEW = 'CREATE_REVIEW';
 
 export const createReview = (bookId, content) => {
   const url = `/api/books/${bookId}/reviews`;
@@ -70,6 +71,40 @@ export const createReview = (bookId, content) => {
 
   return {
     type: CREATE_REVIEW,
+    payload: promise,
+  };
+};
+
+export const fetchShelves = (userId) => {
+  const promise = fetch(`/api/users/${userId}/bookshelves`)
+    .then((response) => response.json());
+
+  return {
+    type: FETCH_SHELVES,
+    payload: promise,
+  };
+};
+
+export const createSubscription = (bookshelf_id, book_id) => {
+  const url = `/api/booksubscriptions`;
+  const body = { bookshelf_id, book_id };
+  console.log('body');
+  console.log(body);
+  const csrfToken = document.querySelector('meta[name="csrf-token"]').attributes.content.value;
+  const promise = fetch(url, {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'X-CSRF-Token': csrfToken,
+    },
+    credentials: 'same-origin',
+    body: JSON.stringify(body),
+  }).then((r) => r.json());
+console.log('promise')
+console.log(promise)
+  return {
+    type: CREATE_SUBSCRIPTION,
     payload: promise,
   };
 };
