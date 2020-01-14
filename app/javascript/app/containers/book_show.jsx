@@ -2,7 +2,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchBook, fetchAuthor } from '../actions/index';
+import { Link } from 'react-router-dom';
+import { fetchBook, fetchAuthor, fetchReviews } from '../actions/index';
+
 
 // Components
 import AuthorProfile from '../components/book_show/author_profile';
@@ -10,8 +12,6 @@ import BookInfo from '../components/book_show/book_info';
 import SimilarAuthors from '../components/book_show/similar_authors';
 import BookReviews from '../components/book_show/book_reviews';
 import SuggestedBooks from '../components/book_show/suggested_books';
-import ReviewList from './review_list';
-
 
 class BookShow extends React.Component {
   componentDidMount() {
@@ -25,6 +25,7 @@ class BookShow extends React.Component {
 
     if (currentId !== nextId) {
       this.props.fetchBook(nextId);
+      this.props.fetchAuthor(nextProps.author.id);
       window.scrollTo(0,0);
     }
   }
@@ -32,9 +33,6 @@ class BookShow extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     if (!this.props.author) {
       this.props.fetchAuthor(this.props.book.author.id);
-    }
-    if (this.props.book && this.props.author && this.props.book.author.id !== this.props.author.id) {
-      this.props.fetchAuthor(this.props.book.author.id)
     }
   }
 
@@ -46,8 +44,11 @@ class BookShow extends React.Component {
             <section className="left-container">
               <BookInfo book={this.props.book} />
               <SuggestedBooks book={this.props.book} author={this.props.author} />
+              <Link to="/reviews/new">
+                <button>Create a review</button>
+              </Link>
               <div className="book-reviews">
-                <BookReviews book={this.props.book}/>
+                <BookReviews book={this.props.book} />
               </div>
             </section>
             <section className="right-container">
@@ -73,7 +74,7 @@ function mapStateToProps(state, ownProps) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchBook, fetchAuthor }, dispatch);
+  return bindActionCreators({ fetchBook, fetchAuthor, fetchReviews }, dispatch);
 }
 
 
