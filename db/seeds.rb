@@ -84,14 +84,6 @@ Book.create(
     isbn: '9721301',
     image: 'https://images-na.ssl-images-amazon.com/images/I/81wBIEW0APL.jpg'
   )
-Book.create(
-    title: "A Whimsy of the World",
-    author: Author.last,
-    genre: Genre.first,
-    description: "For as long as the town of Aurora could remember, Ellie Watson had been a spirited sort. On her way to the general store to pick up some safety pins for her mother, Ellie could easily take a left instead of a right, and end up on the banks of the Tanner River throwing stones at the silvery shadows of trout. And while getting dressed for the Sunday social, she could suddenly put on her brother’s overalls instead of her new yellow dress – despite her brother being four years older and two inches taller.",
-    isbn: '2922301',
-    image: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1558396718l/41952927.jpg'
-  )
 
 Book.create(
     title: "1984",
