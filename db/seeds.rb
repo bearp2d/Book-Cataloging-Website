@@ -19,7 +19,7 @@ User.create(email: 'test@gmail.com', password: 'test123', username: 'testtest', 
 User.create(email: 'test1@gmail.com', password: 'test222', username: 'AbrahamLincoln', image: 'https://uploads.scratch.mit.edu/users/avatars/395/5762.png')
 
 # Author
-Author.create(name: 'Herman Hesse', image: 'https://uploads.scratch.mit.edu/users/avatars/395/5762.png')
+Author.create(name: 'Hermann Hesse', image: 'https://uploads.scratch.mit.edu/users/avatars/395/5762.png')
 Author.create(name: 'Amor Towles', image: 'https://uploads.scratch.mit.edu/users/avatars/395/5762.png')
 
 orwell = Author.create(name: 'George Orwell', image: 'https://uploads.scratch.mit.edu/users/avatars/395/5762.png')
