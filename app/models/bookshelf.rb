@@ -1,5 +1,5 @@
 class Bookshelf < ApplicationRecord
-  validates :name, presence: true, inclusion: { in: ['Want to Read', 'Currently Reading', 'Read'] }
+  validates :name, presence: true, inclusion: { in: ['want', 'current', 'read'] }
 
   belongs_to :user
 
