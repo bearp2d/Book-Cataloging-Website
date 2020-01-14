@@ -50,3 +50,26 @@ export const fetchReviews = (bookId) => {
     payload: promise,
   };
 };
+
+export const CREATE_REVIEW = 'CREATE_REVIEW';
+
+export const createReview = (bookId, content) => {
+  const url = `/api/books/${bookId}/reviews`;
+  const body = { content };
+  const csrfToken = document.querySelector('meta[name="csrf-token"]').attributes.content.value;
+  const promise = fetch(url, {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'X-CSRF-Token': csrfToken,
+    },
+    credentials: 'same-origin',
+    body: JSON.stringify(body.content),
+  }).then((r) => r.json());
+
+  return {
+    type: CREATE_REVIEW,
+    payload: promise,
+  };
+};
