@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
-import { fetchBook, fetchAuthor, fetchReviews } from '../actions/index';
+import { fetchBook, fetchAuthor } from '../actions/index';
 
 
 // Components
@@ -31,8 +31,12 @@ class BookShow extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (!this.props.author) {
+    if (!this.props.author || prevProps.match.params.id !== this.props.match.params.id && this.props.book) {
       this.props.fetchAuthor(this.props.book.author.id);
+    }
+
+    if (this.props.book && this.props.author && this.props.book.author.id !== this.props.author.id) {
+      this.props.fetchAuthor(this.props.book.author.id)
     }
   }
 
@@ -52,7 +56,7 @@ class BookShow extends React.Component {
               </div>
             </section>
             <section className="right-container">
-              <AuthorProfile book={this.props.book} author={this.props.author}/>
+              <AuthorProfile book={this.props.book} author={this.props.author} />
               <div className="similar-author-card">
                 <SimilarAuthors author={this.props.author} />
               </div>
@@ -70,11 +74,12 @@ function mapStateToProps(state, ownProps) {
   return {
     book,
     author: state.authors[0],
+    user: state.user[0],
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchBook, fetchAuthor, fetchReviews }, dispatch);
+  return bindActionCreators({ fetchBook, fetchAuthor }, dispatch);
 }
 
 
