@@ -1,6 +1,17 @@
 .navbar-lewagon {
   justify-content: space-between;
+  align-items: center;
   background: white;
+  width: 100%;
+
+  h6 {
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    color: black;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +20,60 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.fixed-top {
+  opacity: 1;
+  background: #f4f4f4
+}
+
+.fixed-top.scrolled {
+  background-color: black !important;
+  opacity: .8;
+  transition: background-color 200ms linear;
+
+  a {
+    color: white;
+  }
+
+  .icon {
+    color: white;
+  }
+
+  .navbar-toggler {
+    background-color: white;
+    opacity: .8;
+  }
+
+  .navbar-toggler-icon {
+    width: 15px;
+    height: 15px;
+    padding: 0;
+  }
+
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+    opacity: .8;
+  }
+}
+
+#shopping-cart {
+  font-size: 1em;
+}
+
+.icon.nav-link {
+  padding: 0;
+}
+
+.navbar h6 {
+  font-family: $headers-font;
+}
+
+.sign-in-icons {
+  display: flex;
 }
