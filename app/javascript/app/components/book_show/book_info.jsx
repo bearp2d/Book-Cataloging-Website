@@ -17,6 +17,10 @@ class BookInfo extends React.Component {
   //   return <span><i>N/A</i></span>;
   // }
 
+  handleClick = () => {
+    this.props.createSubscription(this.props.shelves[0].want.id, this.props.book.id)
+  }
+
 
   renderBook() {
     const { book } = this.props;
@@ -25,7 +29,7 @@ class BookInfo extends React.Component {
         <div className="book-info" key={book.id}>
           <div className="book-info-left">
             <img src={book.image} alt="Book Cover" />
-            <button className="btn-dark">Add & Rate (todo)</button>
+            <button onClick={() => this.handleClick()}className="btn-success">Want To Read</button>
           </div>
           <div className="book-info-right">
             <div className="book-stats">
