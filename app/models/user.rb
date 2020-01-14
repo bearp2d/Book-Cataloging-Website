@@ -17,8 +17,8 @@ class User < ApplicationRecord
   private
 
   def init_shelves
-    @read_shelf = Bookshelf.create(user_id: self.id, name: 'Read')
-    @will_read_shelf = Bookshelf.create(user_id: self.id, name: 'Want to Read')
-    @reading_shelf = Bookshelf.create(user_id: self.id, name: 'Currently Reading')
+    @read_shelf = Bookshelf.create(user_id: self.id, name: 'read')
+    @reading_shelf = Bookshelf.create(user_id: self.id, name: 'current')
+    @will_read_shelf = Bookshelf.create(user_id: self.id, name: 'want')
   end
 end
