@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
-import { fetchBook, fetchAuthor } from '../actions/index';
+import { fetchBook, fetchAuthor, createSubscription, fetchShelves } from '../actions/index';
 
 
 // Components
@@ -46,7 +46,7 @@ class BookShow extends React.Component {
         <div className="main-content">
           <div className="book-details-container">
             <section className="left-container">
-              <BookInfo book={this.props.book} />
+              <BookInfo book={this.props.book} createSubscription={this.props.createSubscription} shelves={this.props.shelves} user={this.props.user} />
               <SuggestedBooks book={this.props.book} author={this.props.author} />
               <Link to="/reviews/new">
                 <button>Create a review</button>
@@ -74,12 +74,13 @@ function mapStateToProps(state, ownProps) {
   return {
     book,
     author: state.authors[0],
-    user: state.user[0],
+    user: state.user,
+    shelves: state.userBookshelves,
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchBook, fetchAuthor }, dispatch);
+  return bindActionCreators({ fetchBook, fetchAuthor, fetchShelves, createSubscription }, dispatch);
 }
 
 
