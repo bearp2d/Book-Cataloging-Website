@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {registrations: 'registrations'}
   root to: 'pages#home'
+
   get  "books/:id", to: 'pages#home'
   get  "authors/:id", to: 'pages#home'
   get "reviews/new", to: 'pages#home'
+  get "users/sign_up", to: 'pages#home'
+
 
   namespace :api, defaults: { format: :json } do
     resources :users, only: [ :show, :create, :destroy ]  do
