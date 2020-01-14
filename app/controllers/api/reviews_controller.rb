@@ -18,7 +18,7 @@ class Api::ReviewsController < ApplicationController
     if review.save!
       render json: review
     else
-      flash[:notice] = 'You must be logged in to create a review.'
+      render json: @review.errors.full_messages, status: 422
     end
   end
 
