@@ -9,9 +9,6 @@
       <div class="sign-in-icons">
         <li>
           <% if user_signed_in? %>
-          <%= link_to root_path, class: "icon nav-link" do %>
-          <i class="fas fa-book-reader"></i>
-          <% end %>
         </li>
         <li>
           <%= link_to destroy_user_session_path, method: :delete, class: "icon nav-link" do %>
