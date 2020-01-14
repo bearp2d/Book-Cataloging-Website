@@ -1,6 +1,6 @@
 class Api::ReviewsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :create, :update, :destroy, :show]
-  before_action :set_review, only: [:show, :update, :destroy]
+  before_action :set_book, only: [:show, :create, :update, :destroy]
   skip_before_action :verify_authenticity_token, only: [:create]
 
   def index
@@ -12,12 +12,13 @@ class Api::ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(review_params)
-    # @review.user = current_user
-    if @review.save
-      render :show
+    # @review = Review.new(review_params)
+    review = Review.new(review_params)
+    review.user = current_user
+    if review.save!
+      render json: review
     else
-      render json: @review.errors.full_messages, status: :unprocessable_entity
+      flash[:notice] = 'You must be logged in to create a review.'
     end
   end
 
@@ -40,10 +41,10 @@ class Api::ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:rating, :comment, :suggest, :book_id, :user_id)
+    params.require(:review).permit(:rating, :comment, :book_id)
   end
 
-  def set_review
-    @review = Review.find(params[:id])
+  def set_book
+    @book = Book.find(params[:book_id])
   end
 end
