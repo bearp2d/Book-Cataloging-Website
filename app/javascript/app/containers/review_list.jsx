@@ -7,22 +7,13 @@ import { fetchReviews } from '../actions/index';
 class ReviewList extends React.Component {
   componentDidMount() {
     if (!this.props.reviews) {
-      this.props.fetchReviews(this.props.match.params.id);
+
+      // this.props.fetchReviews(this.props.match.params.id);
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    // const nextId = nextProps.match.params.id;
-    // console.log(nextProps.book[0].id);
-    // if (this.props.book.id !== nextProps.book[0].id)
-    // {
-    //   his.props.fetchReviews(nextProps.book[0].id);
-    // }
 
-    // if (currentId !== nextId) {
-    //   // this.props.fetchReviews(nextId);
-    //   // console.log(this.props)
-    // }
   }
 
   renderReviews() {
@@ -40,10 +31,10 @@ class ReviewList extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
-  const idFromUrl = parseInt(ownProps.match.params.id, 10)
-  const book = state.books.find((b) => b.id === idFromUrl);
-  console.log(book);
-};
+  return {
+    reviews: state.reviews,
+  };
+}
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ fetchReviews }, dispatch);
