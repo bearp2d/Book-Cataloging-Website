@@ -16,13 +16,17 @@ import SuggestedBooks from '../components/book_show/suggested_books';
 class BookShow extends React.Component {
   componentDidMount() {
     this.props.fetchBook(this.props.match.params.id);
+    if (this.props.user !== null || !this.props.shelves) {
+     this.props.fetchShelves(this.props.user)
+  }
+
     window.scrollTo(0,0);
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log('recieve props')
     const currentId = this.props.match.params.id;
     const nextId = nextProps.match.params.id;
-
     if (currentId !== nextId) {
       this.props.fetchBook(nextId);
       this.props.fetchAuthor(nextProps.author.id);
@@ -31,7 +35,7 @@ class BookShow extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (!this.props.author || prevProps.match.params.id !== this.props.match.params.id && this.props.book) {
+    if ((!this.props.author || prevProps.match.params.id !== this.props.match.params.id) && this.props.book) {
       this.props.fetchAuthor(this.props.book.author.id);
     }
 
