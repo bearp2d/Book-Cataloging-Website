@@ -1,26 +1,10 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import ShelfForm from '../../containers/shelf_form';
 
 
 
 class BookInfo extends React.Component {
-
-  // star rating needs to associate floats
-
-
-
-  // calculateStarRating(rating) {
-  //   if (rating > 0) {
-  //     return [...Array(rating)].map((e, i) => <i className="fas fa-star"></i>);
-  //   }
-
-  //   return <span><i>N/A</i></span>;
-  // }
-
-  handleClick = () => {
-    this.props.createSubscription(this.props.shelves[0].want.id, this.props.book.id)
-  }
-
 
   renderBook() {
     const { book } = this.props;
@@ -29,7 +13,7 @@ class BookInfo extends React.Component {
         <div className="book-info" key={book.id}>
           <div className="book-info-left">
             <img src={book.image} alt="Book Cover" />
-            <button onClick={() => this.handleClick()}className="btn-success">Want To Read</button>
+            <ShelfForm book={book}/>
           </div>
           <div className="book-info-right">
             <div className="book-stats">
