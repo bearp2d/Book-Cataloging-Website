@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import ShelfForm from '../../containers/shelf_form';
 
-
+import SelectForm from '../select_form';
 
 class BookInfo extends React.Component {
 
@@ -13,7 +12,7 @@ class BookInfo extends React.Component {
         <div className="book-info" key={book.id}>
           <div className="book-info-left">
             <img src={book.image} alt="Book Cover" />
-            <ShelfForm book={book}/>
+            <SelectForm book={book} />
           </div>
           <div className="book-info-right">
             <div className="book-stats">
