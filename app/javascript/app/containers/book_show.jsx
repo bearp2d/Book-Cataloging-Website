@@ -12,6 +12,7 @@ import BookInfo from '../components/book_show/book_info';
 import SimilarAuthors from '../components/book_show/similar_authors';
 import BookReviews from '../components/book_show/book_reviews';
 import SuggestedBooks from '../components/book_show/suggested_books';
+import SelectForm from './select_form';
 
 class BookShow extends React.Component {
   componentDidMount() {
@@ -23,13 +24,14 @@ class BookShow extends React.Component {
     window.scrollTo(0,0);
   }
 
+  // IF THIS.PROPS.FETCHSHELVES CHANGES THEN UPDATE SHELVES
+
   componentWillReceiveProps(nextProps) {
-    console.log('recieve props')
     const currentId = this.props.match.params.id;
     const nextId = nextProps.match.params.id;
     if (currentId !== nextId) {
       this.props.fetchBook(nextId);
-      this.props.fetchAuthor(nextProps.author.id);
+      // this.props.fetchAuthor(nextProps.author.id);
       window.scrollTo(0,0);
     }
   }
@@ -50,7 +52,7 @@ class BookShow extends React.Component {
         <div className="main-content">
           <div className="book-details-container">
             <section className="left-container">
-              <BookInfo book={this.props.book} createSubscription={this.props.createSubscription} shelves={this.props.shelves} user={this.props.user} />
+              <BookInfo book={this.props.book} createSubscription={this.props.createSubscription} user={this.props.user} />
               <SuggestedBooks book={this.props.book} author={this.props.author} />
               <Link to="/reviews/new">
                 <button>Create a review</button>
