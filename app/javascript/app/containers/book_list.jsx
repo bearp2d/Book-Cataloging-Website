@@ -21,8 +21,12 @@ class BookList extends React.Component {
 
   render() {
       return (
-        <div>
-          { this.renderBook() }
+        <div className="main-content-container">
+          <div className="main-content">
+           <div className='home-book-list'>
+            { this.renderBook() }
+           </div>
+           </div>
         </div>
       );
   }
