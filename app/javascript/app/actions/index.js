@@ -88,8 +88,6 @@ export const fetchShelves = (userId) => {
 export const createSubscription = (bookshelf_id, book_id) => {
   const url = `/api/booksubscriptions`;
   const body = { bookshelf_id, book_id };
-  console.log('body');
-  console.log(body);
   const csrfToken = document.querySelector('meta[name="csrf-token"]').attributes.content.value;
   const promise = fetch(url, {
     method: 'POST',
@@ -101,8 +99,7 @@ export const createSubscription = (bookshelf_id, book_id) => {
     credentials: 'same-origin',
     body: JSON.stringify(body),
   }).then((r) => r.json());
-console.log('promise')
-console.log(promise)
+
   return {
     type: CREATE_SUBSCRIPTION,
     payload: promise,
