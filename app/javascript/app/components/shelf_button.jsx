@@ -13,30 +13,30 @@ class ShelfButton extends React.Component {
     };
   }
 
-  // renderShelfState() {
-  //  if (this.props.shelves.length !== 0) {
-  //     this.props.shelves[0].want.books.map((book) => {
-  //     if (this.props.book.id === book.id){
-  //        this.setState({wantShelf: true});
-  //     }
-  //   });
+  renderShelfState() {
+   if (this.props.shelves.length !== 0) {
+      this.props.shelves[0].want.books.map((book) => {
+      if (this.props.book.id === book.id){
+         this.setState({wantShelf: true});
+      }
+    });
 
 
 
-  //   this.props.shelves[1].current.books.map((book) => {
-  //     if (this.props.book.id === book.id) {
-  //       this.setState({currentShelf: true});
-  //     }
-  //   })
+    this.props.shelves[1].current.books.map((book) => {
+      if (this.props.book.id === book.id) {
+        this.setState({currentShelf: true});
+      }
+    })
 
-  //   this.props.shelves[2].read.books.map((book) => {
-  //     if (this.props.book.id === book.id) {
-  //       this.setState({readShelf: true});
-  //     }
-  //   })
-  //   }
+    this.props.shelves[2].read.books.map((book) => {
+      if (this.props.book.id === book.id) {
+        this.setState({readShelf: true});
+      }
+    })
+    }
 
-  // }
+  }
 
 
   renderUserState() {
@@ -51,14 +51,14 @@ class ShelfButton extends React.Component {
       const shelf = this.state.selectedShelf;
       this.setState({[shelf + 'Shelf']: true });
       // render on refresh
-      // this.renderShelfState();
+      this.renderShelfState();
     }
   }
 
   componentDidMount() {
     this.renderUserState();
     if (this.props.shelves !== null || this.props.shelves.length !== 0) {
-      // this.renderShelfState();
+      this.renderShelfState();
     }
   }
 

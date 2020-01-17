@@ -1,0 +1,57 @@
+.hidden {
+  font-size: 12px;
+  color: black;
+  background-color: #F4F4F4;
+  opacity: .2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  text-align: center;
+  padding: 8px;
+}
+
+.add-to-shelf-form {
+  border-top: 1px solid black;
+  margin-top: 16px;
+}
+
+.selectedOption {
+  font-size: 16px;
+  padding-top: 20px;
+}
+
+.submit-shelf-button {
+  background-color: #FFB82D;
+}
+
+
+.current-shelves {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.shelf-flag {
+  color: white;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 8px;
+}
+
+.want {
+  background-color: #F35151;
+}
+
+.read {
+  background-color: #91CFBE;
+}
+
+.current {
+  background-color: #FF915E;
+}

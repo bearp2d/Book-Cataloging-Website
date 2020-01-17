@@ -1,14 +1,14 @@
 import React from 'react';
-
+import Select from 'react-select';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { createSubscription, fetchShelves } from '../actions/index';
 import ShelfButton from '../components/shelf_button';
 
 const options = [
-  { value: 'want', label: 'Want to Read' },
   { value: 'read', label: 'Read' },
   { value: 'current', label: 'Currently Reading' },
+  { value: 'want', label: 'Want to Read' },
 ];
 
 class SelectForm extends React.Component {
@@ -17,9 +17,6 @@ class SelectForm extends React.Component {
     this.state = {
       selectedOption: null,
       selectedShelfId: null,
-      bookInWantShelf: null,
-      bookInReadShelf: null,
-      bookInCurrentShelf: null
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -36,18 +33,17 @@ class SelectForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-
+    console.log('next props')
 
   //   if (this.state.selectedOption !== null) {
   //     console.log('testing..')
   //     console.log(nextProps.shelves === this.props.shelves)
+
   //     nextProps.shelves.map((shelf, id) => {
   //       if (Object.keys(shelf)[0] === this.state.selectedOption.value) {
-  //         const assignedShelf = Object.keys(shelf)
-  //         const nextShelfCount = shelf[assignedShelf].books.length
-  //         const previousShelfCount = this.props.shelves[id][assignedShelf].books.length
   //         if (nextShelfCount > previousShelfCount) {
-  //           this.props.fetchShelves(this.props.user)
+  //           // this.props.fetchShelves(this.props.user)
+  //           console.log('I should be updating shelf state!!!!')
   //           // console.log('hi')
   //         }
   //       }
@@ -61,6 +57,10 @@ class SelectForm extends React.Component {
   // }
   }
 
+handleClick () {
+  this.props.fetchShelves(this.props.user)
+}
+
 
   handleSubmit(event) {
     event.preventDefault();
@@ -68,27 +68,33 @@ class SelectForm extends React.Component {
     this.props.fetchShelves(this.props.user)
   }
 
-  handleChange (selectedOption) {
+  handleChange = selectedOption => {
     this.setState({ selectedOption });
+    console.log(selectedOption)
     this.fetchShelfId(selectedOption);
   };
 
+
+
   render() {
     const { selectedOption } = this.state;
-    let btnClass = this.state.bookInWantShelf ? 'btn btn-success' : '';
-    let disabledClass = this.state.user ? '' : 'hidden';
+    // let btnClass = this.state.bookInWantShelf ? 'btn btn-success' : '';
+    // let disabledClass = this.state.user ? '' : 'hidden';
 
     return (
       <div className='add-to-shelf-container'>
-      <ShelfButton shelves={this.props.shelves} shelfValue={this.state.selectedOption}/>
+        <ShelfButton book={this.props.book} shelfValue={this.state.selectedOption} user={this.props.user} shelves={this.props.shelves}/>
       <form className='add-to-shelf-form' onSubmit={this.handleSubmit}>
         <fieldset className='form-item'>
           <legend className="selectedOption">
-              Add:
-              <h1>To do - add form(or buttons for clicking)</h1>
+              <Select
+                value={selectedOption}
+                onChange={this.handleChange}
+                options={options}
+              />
           </legend>
         </fieldset>
-        <button className="btn btn-primary">Add To Shelf</button>
+        <button onClick={() => this.handleClick()}className="submit-shelf-button">Add To Shelf</button>
         </form>
       </div>
     );
