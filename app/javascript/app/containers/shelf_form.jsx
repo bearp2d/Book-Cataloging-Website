@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { createSubscription, fetchShelves } from '../actions/index';
-// import ShelfButton from '../components/shelf_button';
+import ShelfButton from '../components/shelf_button';
 
 const options = [
   { value: 'want', label: 'Want to Read' },
@@ -80,7 +80,7 @@ class SelectForm extends React.Component {
 
     return (
       <div className='add-to-shelf-container'>
-
+      <ShelfButton shelves={this.props.shelves} shelfValue={this.state.selectedOption}/>
       <form className='add-to-shelf-form' onSubmit={this.handleSubmit}>
         <fieldset className='form-item'>
           <legend className="selectedOption">
