@@ -12,7 +12,7 @@ import BookInfo from '../components/book_show/book_info';
 import SimilarAuthors from '../components/book_show/similar_authors';
 import BookReviews from '../components/book_show/book_reviews';
 import SuggestedBooks from '../components/book_show/suggested_books';
-import SelectForm from './select_form';
+import shelfForm from './shelf_form';
 
 class BookShow extends React.Component {
   componentDidMount() {

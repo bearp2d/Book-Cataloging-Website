@@ -8,6 +8,7 @@ export const FETCH_REVIEWS = 'FETCH_REVIEWS';
 export const CREATE_REVIEW = 'CREATE_REVIEW';
 export const CREATE_SUBSCRIPTION = 'CREATE_SUBSCRIPTION';
 export const FETCH_SHELVES = 'FETCH_SHELVES';
+export const FETCH_USER = 'FETCH_USER';
 
 export const fetchBooks = () => {
   const promise = fetch('/api/books')
