@@ -51,9 +51,6 @@ class BookShow extends React.Component {
             <section className="left-container">
               <BookInfo book={this.props.book} createSubscription={this.props.createSubscription} user={this.props.user} />
               <SuggestedBooks book={this.props.book} author={this.props.author} />
-              <Link to="/reviews/new">
-                <button>Create a review</button>
-              </Link>
               <div className="book-reviews">
                 <BookReviews book={this.props.book} />
               </div>
