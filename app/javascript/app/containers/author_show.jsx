@@ -66,7 +66,7 @@ class AuthorShow extends React.Component {
   }
 
   render() {
-      if (this.props.author) {
+
       return (
         <div className='main-content-container'>
           <div className="main-content">
@@ -77,17 +77,12 @@ class AuthorShow extends React.Component {
             { this.renderSimilarAuthors() }
             </div>
           <div className="author-books-list">
-
             { this.renderAuthorBooks() }
            </div>
             </div>
           </div>
         </div>
       );
-  }
-  return (
-    <div></div>
-  )
   }
 }
 
