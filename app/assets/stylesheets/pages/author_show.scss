@@ -1,0 +1,45 @@
+.author-info {
+  display: flex;
+  margin-top: 100px;
+  justify-content: space-between;
+
+
+
+  img {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+  }
+}
+
+.author-description {
+  padding: 0px 50px;
+}
+
+#top-genre {
+  color: green;
+  display: flex;
+}
+
+.extended-author-info {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 80px;
+  margin-left: 100px;
+}
+
+.author-books-list {
+  display: grid;
+  grid-gap: 20px;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+
+  img {
+    height: 300px;
+    width: 200px;
+    object-fit: cover;
+  }
+}
+
