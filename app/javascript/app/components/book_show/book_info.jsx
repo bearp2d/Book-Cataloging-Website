@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-
 import ShelfForm from '../../containers/shelf_form';
+import BookRating from './star_rating';
 
 class BookInfo extends React.Component {
 
@@ -17,14 +17,13 @@ class BookInfo extends React.Component {
           <div className="book-info-right">
             <div className="book-stats">
               <h1>{book.title}</h1>
-
-              <p>{book.review_count} reviews</p>
-              <p>Suggested by {book.suggest_percentage}%</p>
-
-              <p>by:</p>
               <Link style={{textDecoration: 'none'}}key={book.author.id} to={`/authors/${book.author.id}`}>
                {book.author.name}
                </Link>
+               <div className="book-rating">
+               <BookRating rating={book.average_rating} />
+               <p>({book.review_count} Reviews)</p>
+               </div>
             </div>
             <div className="book-description">
               <p>{book.description}</p>
