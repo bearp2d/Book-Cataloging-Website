@@ -29,7 +29,6 @@ class BookShow extends React.Component {
     const nextId = nextProps.match.params.id;
     if (currentId !== nextId) {
       this.props.fetchBook(nextId);
-      // this.props.fetchAuthor(nextProps.author.id);
       window.scrollTo(0,0);
     }
   }
