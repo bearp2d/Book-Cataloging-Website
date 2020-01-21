@@ -17,6 +17,20 @@
   display: flex;
 }
 
+.book-rating {
+  display: flex;
+
+  p {
+    padding-left: 10px;
+  }
+}
+
+.book-stats {
+  h1 {
+    margin: 0;
+  }
+}
+
 .book-info-left {
   display: flex;
   flex-direction: column;
@@ -43,3 +57,4 @@
 .right-container {
   width: 30%;
 }
+
