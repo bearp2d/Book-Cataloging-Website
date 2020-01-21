@@ -24,8 +24,6 @@ class BookShow extends React.Component {
     window.scrollTo(0,0);
   }
 
-  // IF THIS.PROPS.FETCHSHELVES CHANGES THEN UPDATE SHELVES
-
   componentWillReceiveProps(nextProps) {
     const currentId = this.props.match.params.id;
     const nextId = nextProps.match.params.id;
