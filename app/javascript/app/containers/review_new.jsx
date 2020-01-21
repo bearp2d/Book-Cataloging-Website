@@ -70,7 +70,7 @@ class EditStarReview extends React.Component {
             </legend>
           </fieldset>
           <fieldset className='form_item'>
-            <legend> What did you think?</legend>
+            <legend> What did you think of <u>{this.props.book.title}?</u></legend>
             <textarea
               className='review_comment'
               rows='12'
