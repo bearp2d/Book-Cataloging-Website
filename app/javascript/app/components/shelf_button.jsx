@@ -22,7 +22,6 @@ class ShelfButton extends React.Component {
     });
 
 
-
     this.props.shelves[1].current.books.map((book) => {
       if (this.props.book.id === book.id) {
         this.setState({currentShelf: true});
