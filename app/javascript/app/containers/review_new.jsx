@@ -48,21 +48,25 @@ class EditStarReview extends React.Component {
     this.setState({rating: nextValue});
   }
 
+  onStarHover(nextValue, prevValue, name) {
+    this.setState({rating: nextValue});
+  }
+
   render() {
     const { rating } = this.state;
-
     return (
       <div className='main-content-container'>
         <div className="main-content">
           <form className='review_form' onSubmit={this.handleSubmit}>
             <fieldset className='form-item'>
               <legend className="rating">
-        <StarRatingComponent
-          name="rate1"
-          starCount={5}
-          value={rating}
-          onStarClick={this.onStarClick.bind(this)}
-        />
+                <StarRatingComponent
+                  name="rate1"
+                  starCount={5}
+                  value={rating}
+                  onStarClick={this.onStarClick.bind(this)}
+                  onStarHover={this.onStarHover.bind(this)}
+                />
             </legend>
           </fieldset>
           <fieldset className='form_item'>
