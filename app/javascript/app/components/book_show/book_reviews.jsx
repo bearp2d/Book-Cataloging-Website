@@ -40,6 +40,9 @@ class BookReviews extends React.Component {
       <div className='book-reviews-container'>
         <div className="book-reviews-title">
           <h6>Community Reviews</h6>
+          <Link to="/reviews/new" book={this.props.book}>
+            <button className='btn btn-primary'>Write a review</button>
+          </Link>
         </div>
         <div className="book-reviews">
           { this.renderReviews() }
