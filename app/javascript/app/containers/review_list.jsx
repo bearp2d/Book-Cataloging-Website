@@ -5,17 +5,6 @@ import { fetchReviews } from '../actions/index';
 
 
 class ReviewList extends React.Component {
-  componentDidMount() {
-    if (!this.props.reviews) {
-
-      // this.props.fetchReviews(this.props.match.params.id);
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-
-  }
-
   renderReviews() {
     const { books } = this.props;
     return books.map((book) => <Book book={book} key={book.id} />);
