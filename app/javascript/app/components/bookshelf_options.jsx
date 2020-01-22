@@ -12,8 +12,8 @@ export default class BookshelfOptions extends React.Component {
 
       return books.map((book) => {
           return (
-            <tr>
-             <td><Book book={book}/></td>
+            <tr className='bookshelf-item'>
+             <td id='book'><Book book={book}/></td>
              <td>{book.title}</td>
              <td>{book.author.name}</td>
              <td><BookRating rating={book.average_rating} /></td>
