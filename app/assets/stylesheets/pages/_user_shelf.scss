@@ -1,0 +1,27 @@
+.bookshelf-navigation-container {
+  padding: 40px;
+}
+
+.bookshelf-table {
+  width: 100%;
+
+  td, th {
+    text-align: center;
+  }
+
+  img {
+    height: 100px;
+    max-width: 65px;
+    object-fit: cover;
+  }
+}
+
+.shelf-content {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+#shelf-name {
+  text-align: center;
+  padding: 40px;
+}
