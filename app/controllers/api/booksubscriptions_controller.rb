@@ -12,9 +12,18 @@ class Api::BooksubscriptionsController < ApplicationController
     end
   end
 
+  def destroy
+    @subscription = BookSubscription.find_by(booksubscription_params)
+    if @subscription
+      @subscription.destroy
+    else
+      render json: ['This book is not in your shelves.'], status: 404
+    end
+  end
+
   private
 
-    def booksubscription_params
-      params.require(:booksubscription).permit(:bookshelf_id, :book_id)
-    end
+  def booksubscription_params
+    params.require(:booksubscription).permit(:bookshelf_id, :book_id)
+  end
 end

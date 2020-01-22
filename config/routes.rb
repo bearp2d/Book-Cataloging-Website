@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   get  "books/:id", to: 'pages#home'
   get  "authors/:id", to: 'pages#home'
   get "reviews/new", to: 'pages#home'
+  get "users/:id/bookshelves", to: 'pages#home'
+
+  # --
+  get "bookshelves/:id", to: 'pages#home'
 
   namespace :api, defaults: { format: :json } do
     resources :users, only: [ :show, :create, :destroy ]  do
@@ -17,6 +21,6 @@ Rails.application.routes.draw do
     resources :bookshelves, only: [:show]
     resources :genres, only: :show
     resources :reviews, only: [:show, :update, :destroy]
-    resources :booksubscriptions, only: [ :index, :create ]
+    resources :booksubscriptions, only: [ :index, :create, :destroy ]
   end
 end

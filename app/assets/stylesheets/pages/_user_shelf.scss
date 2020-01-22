@@ -1,0 +1,71 @@
+.bookshelf-navigation-container {
+  padding: 40px;
+  position: sticky;
+  top: 0;
+  height: 30vh;
+  text-align: center;
+}
+
+.bookshelf-items-container {
+  padding: 0px 60px;
+}
+
+.bookshelf-table {
+  width: 100%;
+
+  td, th {
+    text-align: center;
+  }
+
+  img {
+    height: 100px;
+    max-width: 65px;
+    object-fit: cover;
+  }
+}
+
+.shelf-content {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+#shelf-name {
+  text-align: center;
+  padding: 40px;
+}
+
+.bookshelf-item {
+  border-bottom: 1px solid #EEE;
+  border-top: 1px solid #EEE;
+  height: 150px;
+}
+
+.nav-item {
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  font-size: 14px;
+  padding: 10px;
+
+  &:hover {
+    opacity: .8;
+    transform: scale(1.1);
+  }
+}
+
+.selected {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#book {
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    opacity: .8;
+    transform: scale(1.1);
+  }
+}
+
+#bookshelf-title {
+  border-bottom: 1px solid #EEE;
+}

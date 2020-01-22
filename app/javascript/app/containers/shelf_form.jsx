@@ -32,30 +32,6 @@ class SelectForm extends React.Component {
     })
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log('next props')
-
-  //   if (this.state.selectedOption !== null) {
-  //     console.log('testing..')
-  //     console.log(nextProps.shelves === this.props.shelves)
-
-  //     nextProps.shelves.map((shelf, id) => {
-  //       if (Object.keys(shelf)[0] === this.state.selectedOption.value) {
-  //         if (nextShelfCount > previousShelfCount) {
-  //           // this.props.fetchShelves(this.props.user)
-  //           console.log('I should be updating shelf state!!!!')
-  //           // console.log('hi')
-  //         }
-  //       }
-  //       // console.log(Object.values(shelf)[0])
-  //   })
-  // }
-
-
-  //   if (this.props.shelves.length !== 0) {
-  //   console.log(Object.values(nextProps.shelves[this.state.selectedOption]))
-  // }
-  }
 
 handleClick () {
   this.props.fetchShelves(this.props.user)
@@ -78,8 +54,6 @@ handleClick () {
 
   render() {
     const { selectedOption } = this.state;
-    // let btnClass = this.state.bookInWantShelf ? 'btn btn-success' : '';
-    // let disabledClass = this.state.user ? '' : 'hidden';
     let userCheck = this.props.user ? '' : 'disabled'
 
     return (

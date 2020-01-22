@@ -5,9 +5,6 @@ import StarRatingComponent from 'react-star-rating-component';
 
 
 class BookRating extends React.Component {
-
-
-
   constructor() {
       super();
 
