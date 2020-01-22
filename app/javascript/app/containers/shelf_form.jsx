@@ -54,8 +54,6 @@ handleClick () {
 
   render() {
     const { selectedOption } = this.state;
-    // let btnClass = this.state.bookInWantShelf ? 'btn btn-success' : '';
-    // let disabledClass = this.state.user ? '' : 'hidden';
     let userCheck = this.props.user ? '' : 'disabled'
 
     return (
