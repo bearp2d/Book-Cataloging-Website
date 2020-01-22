@@ -15,9 +15,9 @@ class ShelfButton extends React.Component {
 
   renderShelfState() {
    if (this.props.shelves.length !== 0) {
-      this.props.shelves[0].want.books.map((book) => {
+      this.props.shelves[0].read.books.map((book) => {
       if (this.props.book.id === book.id){
-         this.setState({wantShelf: true});
+         this.setState({readShelf: true});
       }
     });
 
@@ -28,9 +28,9 @@ class ShelfButton extends React.Component {
       }
     })
 
-    this.props.shelves[2].read.books.map((book) => {
+    this.props.shelves[2].want.books.map((book) => {
       if (this.props.book.id === book.id) {
-        this.setState({readShelf: true});
+        this.setState({wantShelf: true});
       }
     })
     }
@@ -55,6 +55,8 @@ class ShelfButton extends React.Component {
   }
 
   componentDidMount() {
+    console.log('props')
+    console.log(this.props.shelves)
     this.renderUserState();
     if (this.props.shelves !== null || this.props.shelves.length !== 0) {
       this.renderShelfState();
