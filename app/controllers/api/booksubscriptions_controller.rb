@@ -14,7 +14,7 @@ class Api::BooksubscriptionsController < ApplicationController
 
   private
 
-    def booksubscription_params
-      params.require(:booksubscription).permit(:bookshelf_id, :book_id)
-    end
+  def booksubscription_params
+    params.require(:booksubscription).permit(:bookshelf_id, :book_id)
+  end
 end
