@@ -56,15 +56,19 @@ class UserShelves extends React.Component {
       return (
         this.props.shelves.map((shelf) => {
           let currentShelf = Object.values(shelf)[0]
+          let selectedItem = this.state.selectedShelf.name === currentShelf.name ? 'nav-item selected' : 'nav-item'
           return (
             <div className='bookshelf-navigation'>
-              <p onClick={() => {this.handleClick(currentShelf)}}>{this.updateShelfName(currentShelf.name)} <span>({currentShelf.books.length})</span></p>
+              <p
+                className={selectedItem}
+                onClick={() => {this.handleClick(currentShelf)}}>{this.updateShelfName(currentShelf.name)}
+                <span>({currentShelf.books.length})</span>
+                </p>
             </div>
           )
         })
       )
   }
-
 
   render() {
     return (
@@ -72,7 +76,7 @@ class UserShelves extends React.Component {
         <div className="main-content">
         <div className='shelf-content'>
           <section className="bookshelf-navigation-container">
-            <h1>Bookshelves</h1>
+            <h3 id='bookshelf-title'>Bookshelves</h3>
             {this.defineShelves()}
           </section>
           <section className="bookshelf-items-container">
