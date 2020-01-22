@@ -21,6 +21,6 @@ Rails.application.routes.draw do
     resources :bookshelves, only: [:show]
     resources :genres, only: :show
     resources :reviews, only: [:show, :update, :destroy]
-    resources :booksubscriptions, only: [ :index, :create ]
+    resources :booksubscriptions, only: [ :index, :create, :destroy ]
   end
 end
