@@ -52,7 +52,7 @@ class BookShow extends React.Component {
               <BookInfo book={this.props.book} createSubscription={this.props.createSubscription} user={this.props.user} />
               <SuggestedBooks book={this.props.book} author={this.props.author} />
               <div className="book-reviews">
-                <BookReviews book={this.props.book} />
+                <BookReviews book={this.props.book} user={this.props.user}/>
               </div>
             </section>
             <section className="right-container">

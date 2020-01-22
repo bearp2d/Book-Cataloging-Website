@@ -80,6 +80,7 @@ handleClick () {
     const { selectedOption } = this.state;
     // let btnClass = this.state.bookInWantShelf ? 'btn btn-success' : '';
     // let disabledClass = this.state.user ? '' : 'hidden';
+    let userCheck = this.props.user ? '' : 'disabled'
 
     return (
       <div className='add-to-shelf-container'>
@@ -94,7 +95,7 @@ handleClick () {
               />
           </legend>
         </fieldset>
-        <button onClick={() => this.handleClick()}className="submit-shelf-button">Add To Shelf</button>
+        <button onClick={() => this.handleClick()}className="submit-shelf-button" disabled={userCheck}>Add To Shelf</button>
         </form>
       </div>
     );

@@ -36,12 +36,13 @@ class BookReviews extends React.Component {
   }
 
   render() {
+    let checkUser = this.props.user ? '' : 'disabled'
     return (
       <div className='book-reviews-container'>
         <div className="book-reviews-title">
           <h6>Community Reviews</h6>
           <Link to="/reviews/new" book={this.props.book}>
-            <button className='btn btn-primary'>Write a review</button>
+            <button className='btn btn-primary' disabled={checkUser}>Write a review</button>
           </Link>
         </div>
         <div className="book-reviews">

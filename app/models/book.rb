@@ -13,7 +13,7 @@ class Book < ApplicationRecord
            through: :book_subscriptions
 
   def average_rating
-    ratings.count < 1 ? 'none' : (ratings.reduce(:+) / ((ratings.count * 100.0).round / 100.0)).round(2)
+    ratings.count < 1 ? 0 : (ratings.reduce(:+) / ((ratings.count * 100.0).round / 100.0)).round(2)
   end
 
   def review_count

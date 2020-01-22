@@ -15,6 +15,7 @@ BookSubscription.destroy_all
 Review.destroy_all
 
 # User
+User.create(email: 'guest@guest.com', password: 'password', username: 'guest', image: 'https://uploads.scratch.mit.edu/users/avatars/395/5762.png')
 User.create(email: 'test@gmail.com', password: 'test123', username: 'testtest', image: 'https://uploads.scratch.mit.edu/users/avatars/395/5762.png')
 User.create(email: 'test1@gmail.com', password: 'test222', username: 'AbrahamLincoln', image: 'https://uploads.scratch.mit.edu/users/avatars/395/5762.png')
 
