@@ -16,7 +16,8 @@ const App = (props) => {
         <Route exact path="/books/:id" component={BookShow} />
         <Route path="/authors/:id" exact component={AuthorShow} />
         <Route path="/reviews/new" exact component={ReviewNew} />
-        <Route path="/users/sign_up" exact compoent={UserNew} />
+
+
       </Switch>
     </div>
   );
