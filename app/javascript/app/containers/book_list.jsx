@@ -6,7 +6,7 @@ import Jumbotron from 'react-bootstrap/Jumbotron'
 import { Link } from 'react-router-dom';
 
 import Book from '../components/book';
-import UserShelves from '../components/user_shelves';
+
 
 class BookList extends React.Component {
   componentDidMount() {
