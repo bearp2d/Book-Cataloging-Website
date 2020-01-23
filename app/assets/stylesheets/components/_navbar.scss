@@ -1,8 +1,10 @@
 .navbar-lewagon {
   justify-content: space-between;
   align-items: center;
-  background: white;
   width: 100%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  max-height: 38px;
 
   h6 {
     margin: 0;
@@ -11,6 +13,7 @@
 
   a {
     color: black;
+    opacity: 1;
   }
 }
 
@@ -20,37 +23,17 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+  opacity: 1
 }
 
 .fixed-top {
-  opacity: 1;
-  background: #f4f4f4
+  opacity: .9;
+  background: #F9F7F5;
 }
 
-.fixed-top.scrolled {
-  background-color: black !important;
-  opacity: .8;
-  transition: background-color 200ms linear;
-
-  a {
-    color: white;
-  }
-
-  .icon {
-    color: white;
-  }
-
-  .navbar-toggler {
-    background-color: white;
-    opacity: .8;
-  }
-
-  .navbar-toggler-icon {
-    width: 15px;
-    height: 15px;
-    padding: 0;
-  }
-
+#nav-logo {
+  height: 40px;
+  width: 130px
 }
 
 a {
