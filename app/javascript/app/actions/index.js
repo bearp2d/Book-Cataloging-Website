@@ -1,13 +1,16 @@
-// BOOK ACTIONS
 
 export const FETCH_BOOKS = 'FETCH_BOOKS';
 export const FETCH_BOOK = 'FETCH_BOOK';
 
 export const FETCH_AUTHOR = 'FETCH_AUTHOR';
+
 export const FETCH_REVIEWS = 'FETCH_REVIEWS';
 export const CREATE_REVIEW = 'CREATE_REVIEW';
+
 export const CREATE_SUBSCRIPTION = 'CREATE_SUBSCRIPTION';
+
 export const FETCH_SHELVES = 'FETCH_SHELVES';
+
 export const FETCH_USER = 'FETCH_USER';
 
 export const fetchBooks = () => {
@@ -41,9 +44,6 @@ export const fetchAuthor = (id) => {
     payload: promise,
   };
 };
-
-// Review Actions
-
 
 export const fetchReviews = (bookId) => {
   const promise = fetch(`/api/books/${bookId}/reviews`)

@@ -32,10 +32,9 @@ class SelectForm extends React.Component {
     })
   }
 
-handleClick () {
-  this.props.fetchShelves(this.props.user)
-}
-
+  handleClick () {
+    this.props.fetchShelves(this.props.user)
+  }
 
   handleSubmit(event) {
     event.preventDefault();
@@ -45,11 +44,8 @@ handleClick () {
 
   handleChange = selectedOption => {
     this.setState({ selectedOption });
-    console.log(selectedOption)
     this.fetchShelfId(selectedOption);
   };
-
-
 
   render() {
     const { selectedOption } = this.state;

@@ -1,7 +1,6 @@
 class Book < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
-  validates :isbn, presence: true, uniqueness: true, numericality: { only_integer: true }
   validates :image, presence: true
 
   belongs_to :author
@@ -18,10 +17,6 @@ class Book < ApplicationRecord
 
   def review_count
     reviews.count
-  end
-
-  def suggest_percentage
-    all_suggestions_count < 1 ? 0 : ((suggest_true_count.to_f / all_suggestions_count.to_f) * 100).round
   end
 
   # all books from book's author
@@ -46,15 +41,6 @@ class Book < ApplicationRecord
   end
 
   private
-
-  def all_suggestions_count
-    reviews.map(&:suggest).count
-  end
-
-  def suggest_true_count
-    suggestions = reviews.map(&:suggest)
-    suggestions.select {|s| s == true}.count
-  end
 
   def ratings
     self.reviews.map(&:rating)

@@ -7,9 +7,6 @@ Rails.application.routes.draw do
   get "reviews/new", to: 'pages#home'
   get "users/:id/bookshelves", to: 'pages#home'
 
-  # --
-  get "bookshelves/:id", to: 'pages#home'
-
   namespace :api, defaults: { format: :json } do
     resources :users, only: [ :show, :create, :destroy ]  do
       resources :bookshelves, only: [ :index ]

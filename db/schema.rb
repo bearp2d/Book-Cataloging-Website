@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_13_000845) do
+ActiveRecord::Schema.define(version: 2020_01_23_203409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 2020_01_13_000845) do
     t.bigint "author_id"
     t.bigint "genre_id"
     t.text "description", null: false
-    t.integer "isbn", null: false
     t.string "image", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -61,7 +60,6 @@ ActiveRecord::Schema.define(version: 2020_01_13_000845) do
   create_table "reviews", force: :cascade do |t|
     t.text "comment"
     t.integer "rating", null: false
-    t.boolean "suggest"
     t.bigint "user_id"
     t.bigint "book_id"
     t.datetime "created_at", null: false

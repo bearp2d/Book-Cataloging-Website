@@ -21,7 +21,6 @@ class ShelfButton extends React.Component {
       }
     });
 
-
     this.props.shelves[1].current.books.map((book) => {
       if (this.props.book.id === book.id) {
         this.setState({currentShelf: true});
@@ -34,9 +33,7 @@ class ShelfButton extends React.Component {
       }
     })
     }
-
   }
-
 
   renderUserState() {
     if (this.props.user) {
@@ -49,14 +46,11 @@ class ShelfButton extends React.Component {
     if (prevProps.shelves !== this.props.shelves) {
       const shelf = this.state.selectedShelf;
       this.setState({[shelf + 'Shelf']: true });
-      // render on refresh
       this.renderShelfState();
     }
   }
 
   componentDidMount() {
-    console.log('props')
-    console.log(this.props.shelves)
     this.renderUserState();
     if (this.props.shelves !== null || this.props.shelves.length !== 0) {
       this.renderShelfState();
@@ -64,13 +58,10 @@ class ShelfButton extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('nextProps from shelfButton')
     if (nextProps.shelfValue !== null) {
       this.setState({ selectedShelf: nextProps.shelfValue.value})
     }
   }
-
-
 
   render() {
     let btnClass = this.state.wantShelf ? 'shelf-flag want' : 'hidden';
