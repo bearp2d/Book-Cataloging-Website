@@ -1,5 +1,5 @@
 class Api::BooksController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :show ]
+  skip_before_action :authenticate_user!, only: [:index, :show ]
   def index
     @books = Book.order(created_at: :desc)
     render :index
