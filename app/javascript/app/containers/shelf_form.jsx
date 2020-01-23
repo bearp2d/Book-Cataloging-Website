@@ -32,7 +32,6 @@ class SelectForm extends React.Component {
     })
   }
 
-
 handleClick () {
   this.props.fetchShelves(this.props.user)
 }
