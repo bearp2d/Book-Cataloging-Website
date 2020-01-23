@@ -8,6 +8,18 @@
     width: 100%;
     object-fit: cover;
   }
+
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media only screen and (min-width: 600px) and (max-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 992px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 .shelf-button {
@@ -21,7 +33,17 @@
   overflow: hidden;
   background-image: url('https://images.unsplash.com/photo-1490633874781-1c63cc424610?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80');
   color: white;
-  object-fit: cover;
+  text-shadow: 0px 1px 2px black;
+
+    @media only screen and (max-width: 600px) {
+      background-size: cover;
+      height: 50vh;
+    }
+
+    @media only screen and (min-width: 600px) and (max-width: 768px) {
+      background-size: cover;
+      height: 60vh;
+    }
 }
 
 .home-header {
@@ -33,6 +55,16 @@
   background-image: url('https://images.unsplash.com/photo-1474366521946-c3d4b507abf2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80');
   color: white;
   text-shadow: 0px 1px 2px black;
+
+  @media only screen and (max-width: 600px) {
+    background-size: cover;
+    height: 50vh;
+  }
+
+  @media only screen and (min-width: 600px) and (max-width: 768px) {
+    background-size: cover;
+    height: 60vh;
+  }
 }
 
 #book-list-title {
@@ -40,5 +72,4 @@
   padding: 40px;
   height: 50px;
   width:50px;
-
 }
