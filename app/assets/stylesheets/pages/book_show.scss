@@ -10,12 +10,20 @@
   overflow: hidden;
   margin-top: 16px;
   box-shadow: 0 0 0px rgba(0,0,0,0.1);
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+  }
 }
 
 // Book Info
 
 .book-info {
   display: flex;
+
+  @media only screen and (max-width: 992px) {
+    display: block;
+  }
 }
 
 .book-rating {
@@ -57,5 +65,9 @@
 
 .right-container {
   width: 30%;
+
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 }
 

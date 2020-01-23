@@ -25,6 +25,10 @@
   display: flex;
   align-items: center;
   margin-top: 20px;
+
+  @media only screen and (max-width: 768px) {
+    height: 200px;
+  }
 }
 
 .book-review img {
@@ -53,15 +57,28 @@
   width: 100%;
   padding: 16px;
   display: flex;
+
+  @media only screen and (max-width: 768px) {
+    display: block;
+    padding-left: 40px;
+  }
 }
 
 .user-info .rating {
   width: 30%;
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+  }
 }
 .book-review .comment {
   margin-left: 80px;
   overflow: scroll;
   width: 40%;
+
+  @media only screen and (max-width: 768px) {
+    margin-left: 0;
+  }
 }
 
 .empty-review-message {

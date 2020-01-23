@@ -4,10 +4,19 @@
   top: 0;
   height: 30vh;
   text-align: center;
+
+  @media only screen and (max-width: 992px) {
+    position: static;
+    margin-bottom: 60px;
+  }
 }
 
 .bookshelf-items-container {
   padding: 0px 60px;
+
+  @media only screen and (max-width: 992px) {
+    padding: 0px;
+  }
 }
 
 .bookshelf-table {
@@ -22,11 +31,23 @@
     max-width: 65px;
     object-fit: cover;
   }
+
+  td {
+    @media only screen and (max-width: 992px) {
+      padding: 0 5px;
+    }
+  }
 }
+
 
 .shelf-content {
   display: grid;
   grid-template-columns: 1fr 4fr;
+
+  @media only screen and (max-width: 992px) {
+    display: block;
+  }
+
 }
 
 #shelf-name {
