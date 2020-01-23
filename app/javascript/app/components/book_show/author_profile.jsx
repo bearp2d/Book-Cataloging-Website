@@ -12,6 +12,14 @@ class AuthorProfile extends React.Component {
         <Carousel book={book} />
         )
     }
+    if (book && book.author_books.length === 2) {
+      return (
+        <div className="carousel-double-image">
+          <Book className="carousel-item" book={book.author_books[0]}/>
+          <Book className="carousel-item" book={book.author_books[1]}/>
+        </div>
+      )
+    }
     if (book && book.author_books.length === 1) {
       return (
         <div className="carousel-single-image">
