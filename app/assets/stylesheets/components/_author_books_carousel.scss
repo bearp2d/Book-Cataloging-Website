@@ -26,10 +26,30 @@
   }
 }
 
+.carousel-double-image {
+  display: flex;
+  justify-content: center;
+  transition: all .2s ease-in-out;
+
+
+  img {
+    height: 120px;
+    max-width: 90px;
+    object-fit: cover;
+    margin: 10px;
+
+    &:hover {
+      opacity: .8;
+      transform: scale(1.1);
+    }
+  }
+}
+
 .carousel {
   width: 240px;
   height: 300px;
   padding-top: 20px;
+  margin-left: 20px;
 }
 
 .slick-prev:before {
