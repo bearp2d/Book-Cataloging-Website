@@ -11,14 +11,14 @@ export default class BookshelfOptions extends React.Component {
     if (books) {
 
       return books.map((book) => {
-          return (
-            <tr className='bookshelf-item'>
-             <td id='book'><Book book={book}/></td>
-             <td>{book.title}</td>
-             <td>{book.author.name}</td>
-             <td><BookRating rating={book.average_rating} /></td>
-             </tr>
-            )
+        return (
+          <tr className='bookshelf-item'>
+           <td id='book'><Book book={book}/></td>
+           <td>{book.title}</td>
+           <td>{book.author.name}</td>
+           <td><BookRating rating={book.average_rating} /></td>
+           </tr>
+          )
       })
     }
   }
