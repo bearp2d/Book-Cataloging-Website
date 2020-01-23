@@ -5,9 +5,6 @@ import { Provider } from 'react-redux';
 import { Router, Route, Redirect, Switch }
   from 'react-router-dom';
 import history from "./history";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
 
 // internal modules
 import store from './components/store';
