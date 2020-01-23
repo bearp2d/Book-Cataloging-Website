@@ -23,6 +23,7 @@ class EditStarReview extends React.Component {
     this.props.createReview(this.props.book.id, this.state).then(() =>
       this.props.history.push(`/books/${this.props.book.id}`),
     );
+    this.props.history.push(`/books/${this.props.book.id}`)
   }
 
   renderField(field) {
