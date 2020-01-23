@@ -1,5 +1,5 @@
 class Api::ReviewsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :create, :update, :destroy, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_book, only: [:show, :create, :update, :destroy]
   skip_before_action :verify_authenticity_token, only: [:create]
 

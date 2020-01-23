@@ -21,6 +21,14 @@
     width: 200px;
     object-fit: cover;
   }
+
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media only screen and (min-width: 600px) and (max-width: 992px) {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .suggested-book {
