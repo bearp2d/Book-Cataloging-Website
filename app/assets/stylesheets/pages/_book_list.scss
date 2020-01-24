@@ -1,4 +1,4 @@
-.home-book-list {
+.books-list  {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
@@ -10,7 +10,14 @@
   }
 
   @media only screen and (max-width: 600px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+
+      img {
+        height: 100%;
+        max-width: 90px;
+      }
   }
 
   @media only screen and (min-width: 600px) and (max-width: 768px) {
@@ -28,16 +35,32 @@
 }
 
 .home-header-user {
-  height: 70vh;
-  margin-top: 70px;
+  height: 100vh;
+  width: 100vw;
+  background-repeat: no-repeat;;
+
   overflow: hidden;
   background-image: url('https://images.unsplash.com/photo-1490633874781-1c63cc424610?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80');
   color: white;
+
+  h1 {
+    font-size: 54px;
+    padding-top: 40px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
   text-shadow: 0px 1px 2px black;
 
     @media only screen and (max-width: 600px) {
       background-size: cover;
       height: 50vh;
+
+      h1 {
+      font-size: 30px;
+     }
     }
 
     @media only screen and (min-width: 600px) and (max-width: 768px) {
@@ -50,8 +73,19 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 70vh;
-  margin-top: 70px;
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;;
+
+  h1 {
+    font-size: 54px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
   background-image: url('https://images.unsplash.com/photo-1474366521946-c3d4b507abf2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80');
   color: white;
   text-shadow: 0px 1px 2px black;
@@ -59,6 +93,10 @@
   @media only screen and (max-width: 600px) {
     background-size: cover;
     height: 50vh;
+
+      h1 {
+        font-size: 30px;
+      }
   }
 
   @media only screen and (min-width: 600px) and (max-width: 768px) {
@@ -68,8 +106,30 @@
 }
 
 #book-list-title {
-  margin: 0 auto;
-  padding: 40px;
-  height: 50px;
-  width:50px;
+  font-size: 30px;
 }
+
+.genre-list {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  align-items: center;
+  padding: 0px 250px;
+  border-bottom: 1px solid #EEE;
+  border-top: 1px solid #EEE;
+}
+
+.genre-title {
+  text-align: center;
+  margin: 60px 0;
+  padding: 40px 0;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+
+.genre-selected {
+  font-weight: bold;
+  transform: scale(1.1);
+  color: #686868;
+}
+
