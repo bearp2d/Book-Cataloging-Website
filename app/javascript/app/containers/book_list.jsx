@@ -9,6 +9,16 @@ import Book from '../components/book';
 
 
 class BookList extends React.Component {
+
+
+    constructor(props) {
+      super(props);
+      this.state = {
+        selectedGenre: 'all'
+      };
+    };
+
+
   componentDidMount() {
     this.props.fetchBooks();
 
@@ -17,7 +27,7 @@ class BookList extends React.Component {
     }
   }
 
-  renderBook() {
+  renderAllBooks() {
     const { books } = this.props;
     return books.map((book) => <Book book={book} key={book.id} />);
   }
@@ -47,6 +57,27 @@ class BookList extends React.Component {
     }
   }
 
+  setSelected(genre) {
+    if (this.state.selectedGenre === genre) {
+      return 'genre-selected genre-title';
+    }
+    return 'genre-title'
+  }
+
+  handleClick(genre) {
+    this.setState({selectedGenre: genre})
+  }
+
+  renderGenreBooks(genre) {
+    const { books } = this.props;
+    if (genre === 'all') {
+      return books.map((book) => <Book book={book} key={book.id} />);
+    }
+
+    let genreBooks = books.filter((book) => book.genre.name === genre);
+    return genreBooks.map((book) => <Book book={book} key={book.id} />)
+  }
+
   render() {
       return (
 
@@ -54,10 +85,18 @@ class BookList extends React.Component {
           { this.renderJumbotron() }
         <div className="main-content-container">
           <div className="main-content">
-            <h1 id='book-list-title'><i className="fas fa-book-reader"></i></h1>
-           <div className='home-book-list'>
-            { this.renderBook() }
-           </div>
+
+            <ul className="genre-list">
+              <li onClick={() => this.handleClick('all')} className={this.setSelected('all')}>All Genres</li>
+              <li onClick={() => this.handleClick('fantasy')} className={this.setSelected('fantasy')}>Fantasy</li>
+              <li id='book-list-title'><i className="fas fa-book-reader"></i></li>
+              <li onClick={() => this.handleClick('fiction')} className={this.setSelected('fiction')}>Fiction</li>
+              <li onClick={() => this.handleClick('non-fiction')} className={this.setSelected('non-fiction')}>Non-Fiction</li>
+            </ul>
+            <div className="books-list">
+
+                  { this.renderGenreBooks(this.state.selectedGenre) }
+            </div>
            </div>
         </div>
         </div>

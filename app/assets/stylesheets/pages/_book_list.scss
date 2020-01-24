@@ -1,4 +1,4 @@
-.home-book-list {
+.books-list  {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
@@ -106,8 +106,30 @@
 }
 
 #book-list-title {
-  margin: 0 auto;
-  padding: 40px;
-  height: 50px;
-  width:50px;
+  font-size: 30px;
 }
+
+.genre-list {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  align-items: center;
+  padding: 0px 250px;
+  border-bottom: 1px solid #EEE;
+  border-top: 1px solid #EEE;
+}
+
+.genre-title {
+  text-align: center;
+  margin: 60px 0;
+  padding: 40px 0;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+
+.genre-selected {
+  font-weight: bold;
+  transform: scale(1.1);
+  color: #686868;
+}
+
