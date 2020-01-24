@@ -49,16 +49,17 @@ class BookList extends React.Component {
 
   render() {
       return (
+
+        <div>
+          { this.renderJumbotron() }
         <div className="main-content-container">
           <div className="main-content">
-            <div className="user-shelves">
-              { this.renderJumbotron() }
-            </div>
             <h1 id='book-list-title'><i className="fas fa-book-reader"></i></h1>
            <div className='home-book-list'>
             { this.renderBook() }
            </div>
            </div>
+        </div>
         </div>
       );
   }
