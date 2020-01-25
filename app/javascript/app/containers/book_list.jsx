@@ -80,18 +80,16 @@ class BookList extends React.Component {
   }
 
   renderGenres() {
-    // if (this.props.books.length > 1) {
     let { genres } = this.props
     let allGenres = genres.flat()
     allGenres.unshift({name: 'all'})
 
     return (
       allGenres.map((genre) => {
-      let upcaseGenre = genre.name.charAt(0).toUpperCase() + genre.name.slice(1);
-      return <li onClick={() => this.handleClick(genre.name)} className={this.setSelected(genre.name)}>{upcaseGenre}</li>
+        let upcaseGenre = genre.name.charAt(0).toUpperCase() + genre.name.slice(1);
+        return <li onClick={() => this.handleClick(genre.name)} className={this.setSelected(genre.name)}>{upcaseGenre}</li>
       })
     )
-  // }
   }
 
   render() {
