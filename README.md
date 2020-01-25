@@ -83,9 +83,9 @@ renderShelfState(shelfName) {
   const currentBook = currentShelf.books.find((book) => this.props.book.id === book.id)
     if (currentBook) {
       this.setState({[shelfName + 'Shelf']: true})
-      }
+     }
     ...
-    }
+ }
 ````
 
 ### Reviews
