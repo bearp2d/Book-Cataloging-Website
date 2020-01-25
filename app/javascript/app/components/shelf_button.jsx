@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 class ShelfButton extends React.Component {
 
@@ -13,25 +13,19 @@ class ShelfButton extends React.Component {
     };
   }
 
-  renderShelfState() {
-   if (this.props.shelves.length !== 0) {
-      this.props.shelves[0].read.books.map((book) => {
-      if (this.props.book.id === book.id){
-         this.setState({readShelf: true});
-      }
-    });
+  componentDidMount() {
+    this.renderUserState();
+    this.renderShelfState('current')
+  }
 
-    this.props.shelves[1].current.books.map((book) => {
+  renderShelfState(shelfName) {
+    if (this.props.shelves.length > 0) {
+    let currentShelf = this.props.shelves.find((shelf) => shelf[shelfName])[shelfName]
+    currentShelf.books.map((book) => {
       if (this.props.book.id === book.id) {
-        this.setState({currentShelf: true});
-      }
-    })
-
-    this.props.shelves[2].want.books.map((book) => {
-      if (this.props.book.id === book.id) {
-        this.setState({wantShelf: true});
-      }
-    })
+        this.setState({[shelfName + 'Shelf']: true})
+       }
+      })
     }
   }
 
@@ -42,19 +36,20 @@ class ShelfButton extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    if (this.state.selectedShelf === null) {
+      return
+    }
+
     if (prevProps.shelves !== this.props.shelves) {
       const shelf = this.state.selectedShelf;
       this.setState({[shelf + 'Shelf']: true });
-      this.renderShelfState();
+
+      this.renderShelfState(shelf);
+
     }
   }
 
-  componentDidMount() {
-    this.renderUserState();
-    if (this.props.shelves !== null || this.props.shelves.length !== 0) {
-      this.renderShelfState();
-    }
-  }
+
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.shelfValue !== null) {
