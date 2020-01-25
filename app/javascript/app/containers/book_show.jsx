@@ -17,9 +17,10 @@ import shelfForm from './shelf_form';
 class BookShow extends React.Component {
   componentDidMount() {
     this.props.fetchBook(this.props.match.params.id);
+
     if (this.props.user !== null || !this.props.shelves) {
-     this.props.fetchShelves(this.props.user)
-  }
+       this.props.fetchShelves(this.props.user)
+    }
 
     window.scrollTo(0,0);
   }

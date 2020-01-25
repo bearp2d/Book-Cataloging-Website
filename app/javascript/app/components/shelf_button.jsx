@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 class ShelfButton extends React.Component {
 
@@ -13,25 +13,26 @@ class ShelfButton extends React.Component {
     };
   }
 
-  renderShelfState() {
-   if (this.props.shelves.length !== 0) {
-      this.props.shelves[0].read.books.map((book) => {
-      if (this.props.book.id === book.id){
-         this.setState({readShelf: true});
-      }
-    });
+  componentDidMount() {
+    this.props.user ? this.setState({user: true}) : ''
+    this.renderUserState();
+    // Timer set for asynchronicity
+      setTimeout(() => {
+        this.renderShelfState('current');
+        this.renderShelfState('read');
+        this.renderShelfState('want');
+      }, 200);
+    }
 
-    this.props.shelves[1].current.books.map((book) => {
-      if (this.props.book.id === book.id) {
-        this.setState({currentShelf: true});
-      }
-    })
+  renderShelfState(shelfName) {
+    if (this.props.shelves.length !== 0) {
 
-    this.props.shelves[2].want.books.map((book) => {
+    let currentShelf = this.props.shelves.find((shelf) => shelf[shelfName])[shelfName]
+    currentShelf.books.map((book) => {
       if (this.props.book.id === book.id) {
-        this.setState({wantShelf: true});
-      }
-    })
+        this.setState({[shelfName + 'Shelf']: true})
+       }
+      })
     }
   }
 
@@ -42,17 +43,16 @@ class ShelfButton extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    if (this.state.selectedShelf === null) {
+      return
+    }
+
     if (prevProps.shelves !== this.props.shelves) {
       const shelf = this.state.selectedShelf;
       this.setState({[shelf + 'Shelf']: true });
-      this.renderShelfState();
-    }
-  }
 
-  componentDidMount() {
-    this.renderUserState();
-    if (this.props.shelves !== null || this.props.shelves.length !== 0) {
-      this.renderShelfState();
+      this.renderShelfState(shelf);
+
     }
   }
 
@@ -67,7 +67,7 @@ class ShelfButton extends React.Component {
     let currentBtnClass = this.state.currentShelf ? 'shelf-flag current' : 'hidden';
     let readBtnClass = this.state.readShelf ? 'shelf-flag read' : 'hidden';
     let disabledClass = this.state.user ? '' : 'hidden';
-    if (this.state.user) {
+
       return (
         <section className="current-shelves">
           <div className={[readBtnClass, disabledClass].join(' ')}>Read</div>
@@ -75,12 +75,7 @@ class ShelfButton extends React.Component {
           <div className={[btnClass, disabledClass].join(' ')}>Want To Read</div>
         </section>
         )
-    } else {
-    return (
-      <div>
-      </div>
-    );
-  }
+
   }
 }
 
