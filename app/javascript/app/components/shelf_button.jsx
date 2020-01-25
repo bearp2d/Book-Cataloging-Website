@@ -16,6 +16,7 @@ class ShelfButton extends React.Component {
   componentDidMount() {
     this.props.user ? this.setState({user: true}) : ''
     this.renderUserState();
+    // Timer set for asynchronicity
       setTimeout(() => {
         this.renderShelfState('current');
         this.renderShelfState('read');
