@@ -42,7 +42,6 @@ class ShelfButton extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-
     if (prevProps.shelves !== this.props.shelves) {
       const shelf = this.state.selectedShelf;
       this.setState({[shelf + 'Shelf']: true });
