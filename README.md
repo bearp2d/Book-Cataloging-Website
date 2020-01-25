@@ -13,11 +13,6 @@ GreatReads is a book cataloging web application that allows users to browse, rev
 
 ### Features and Implementation
 
-#### Welcome views are dynamic for guests and users
-
-Guest Welcome
-![Image of GreatReads Guest HomePage](app/assets/images/guest-home.png)
-
 User Welcome
 ![Image of GreatReads User HomePage](app/assets/images/user-home.png)
 
