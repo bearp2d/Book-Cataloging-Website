@@ -46,12 +46,41 @@ renderGenres() {
         return <li onClick={() => this.handleClick(genre.name)} className={this.setSelected(genre.name)}>{upcaseGenre}</li>
       })
     )
-  }
 ````
 
 When a user clicks through the different genres, the React state is updated and the books are concurrently displayed. This use of the React state allows the genres to be populated without a full page refresh.
 
 ### Book Show
-When the user clicks on a book, they are taken to the Book Show page
+The user routes to the book show page by clicking on a book. From the Book show page, they can see the average rating of the book from the cumulation of past GreatReads user reviews, add books to their bookshelves, read the book and author description, browse through other books the author has written, check out similar authors, discover similar books within the same genre, and read or write reviews.
+
+
+![Gif of GreatReads Guest HomePage](app/assets/images/book-show.gif)
+
+
+I chose to make the add to shelf option a dropdown menu to make it more challenging.
+
+The dropdown form compiles all of the user's bookshelves and lists the options.
+
+`selectedOption: null`
+
+The shelf container passes awareness of the current shelf to the shelf components through the react state. The shelf components update their background color if the submission is successful in the redux state without page re-load.
+
+````
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.shelves !== this.props.shelves) {
+      const shelf = this.state.selectedShelf;
+      this.setState({[shelf + 'Shelf']: true });
+      this.renderShelfState();
+    }
+  }
+````
+
+
+
+### Reviews
+Users can write reviews and give ratings for books which appear instantly on the book show page by through updating the redux reviews state.
+
+### User Bookshelves
+Users can navigate to their bookshelves to browse all books that are saved in each individual shelf.
 
 
