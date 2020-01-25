@@ -75,12 +75,20 @@ The shelf container passes awareness of the current shelf to the shelf component
   }
 ````
 
-
-
 ### Reviews
-Users can write reviews and give ratings for books which appear instantly on the book show page by through updating the redux reviews state.
+Users can write one review per book and give ratings for books which appear instantly on the book show page by through updating the redux reviews state.
+
+![Gif of GreatReads Guest HomePage](app/assets/images/new-review.gif)
 
 ### User Bookshelves
 Users can navigate to their bookshelves to browse all books that are saved in each individual shelf.
+
+![Gif of GreatReads Guest HomePage](app/assets/images/bookshelves.png)
+
+### Future Directions
+* Search
+* Improve author page
+* Follow authors and friends
+* Create reading groups with friends
 
 
