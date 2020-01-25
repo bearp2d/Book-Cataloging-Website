@@ -15,7 +15,6 @@ class ShelfButton extends React.Component {
 
   componentDidMount() {
     this.props.user ? this.setState({user: true}) : ''
-    this.renderUserState();
     // Timer set for asynchronicity
       setTimeout(() => {
         this.renderShelfState('current');
@@ -27,18 +26,11 @@ class ShelfButton extends React.Component {
   renderShelfState(shelfName) {
     if (this.props.shelves.length !== 0) {
 
-    let currentShelf = this.props.shelves.find((shelf) => shelf[shelfName])[shelfName]
-    currentShelf.books.map((book) => {
-      if (this.props.book.id === book.id) {
-        this.setState({[shelfName + 'Shelf']: true})
-       }
-      })
-    }
-  }
-
-  renderUserState() {
-    if (this.props.user) {
-      this.setState({user: true});
+    const currentShelf = this.props.shelves.find((shelf) => shelf[shelfName])[shelfName]
+    const currentBook = currentShelf.books.find((book) => this.props.book.id === book.id)
+    if (currentBook) {
+      this.setState({[shelfName + 'Shelf']: true})
+      }
     }
   }
 
@@ -50,9 +42,6 @@ class ShelfButton extends React.Component {
     if (prevProps.shelves !== this.props.shelves) {
       const shelf = this.state.selectedShelf;
       this.setState({[shelf + 'Shelf']: true });
-
-      this.renderShelfState(shelf);
-
     }
   }
 
