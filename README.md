@@ -36,14 +36,12 @@ In order for books to be populated by genre, the Redux state populates all genre
 
 ````
 renderGenres() {
-    let { genres } = this.props
-    let allGenres = genres.flat()
-    allGenres.unshift({name: 'all'})
-
+  ...
     return (
       allGenres.map((genre) => {
-        let upcaseGenre = genre.name.charAt(0).toUpperCase() + genre.name.slice(1);
-        return <li onClick={() => this.handleClick(genre.name)} className={this.setSelected(genre.name)}>{upcaseGenre}</li>
+       ...
+       return <li onClick={() => this.handleClick(genre.name)} className={this.setSelected(genre.name)}>{upcaseGenre}</li>
+       ...
       })
     )
 ````
