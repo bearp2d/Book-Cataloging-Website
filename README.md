@@ -56,7 +56,7 @@ renderGenres() {
 When a user clicks through the different genres, the React state is updated and the books are concurrently displayed. This use of the React state allows the genres to be populated without a full page refresh.
 
 ### Book Show
-The user routes to the book show page by clicking on a book. From the Book show page, they can see the average rating of the book from the cumulation of past GreatReads user reviews, add books to their bookshelves, read the book and author description, browse through other books the author has written, check out similar authors, discover similar books within the same genre, and read or write reviews.
+The user routes to the book show page by clicking on a book. From the Book show page, they can see the average rating of the book from the cumulation of past GreatReads user reviews, add books to their bookshelves, read the book and author description, browse through other books the author has written, check out similar authors, discover similar books within the same genre, and read or write reviews. *(the gif below may take a second to play)*
 
 
 ![Gif of GreatReads Guest HomePage](app/assets/images/book-show.gif)
