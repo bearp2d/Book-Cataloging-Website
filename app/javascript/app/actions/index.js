@@ -13,6 +13,8 @@ export const FETCH_SHELVES = 'FETCH_SHELVES';
 
 export const FETCH_USER = 'FETCH_USER';
 
+export const FETCH_GENRES = 'FETCH_GENRES';
+
 export const fetchBooks = () => {
   const promise = fetch('/api/books')
     .then((response) => response.json());
@@ -103,6 +105,16 @@ export const createSubscription = (bookshelf_id, book_id) => {
 
   return {
     type: CREATE_SUBSCRIPTION,
+    payload: promise,
+  };
+};
+
+export const fetchGenres = () => {
+  const promise = fetch(`/api/genres`)
+    .then((response) => response.json());
+
+  return {
+    type: FETCH_GENRES,
     payload: promise,
   };
 };

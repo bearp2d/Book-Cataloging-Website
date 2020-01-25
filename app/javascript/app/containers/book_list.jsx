@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchBooks, fetchShelves } from '../actions/index';
+import { fetchBooks, fetchShelves, fetchGenres } from '../actions/index';
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import { Link } from 'react-router-dom';
 
@@ -21,6 +21,7 @@ class BookList extends React.Component {
 
   componentDidMount() {
     this.props.fetchBooks();
+    this.props.fetchGenres();
 
     if (this.props.user !== null) {
     this.props.fetchShelves(this.props.user);
@@ -78,6 +79,19 @@ class BookList extends React.Component {
     return genreBooks.map((book) => <Book book={book} key={book.id} />)
   }
 
+  renderGenres() {
+    let { genres } = this.props
+    let allGenres = genres.flat()
+    allGenres.unshift({name: 'all'})
+
+    return (
+      allGenres.map((genre) => {
+        let upcaseGenre = genre.name.charAt(0).toUpperCase() + genre.name.slice(1);
+        return <li onClick={() => this.handleClick(genre.name)} className={this.setSelected(genre.name)}>{upcaseGenre}</li>
+      })
+    )
+  }
+
   render() {
       return (
 
@@ -85,17 +99,11 @@ class BookList extends React.Component {
           { this.renderJumbotron() }
         <div className="main-content-container">
           <div className="main-content">
-
             <ul className="genre-list">
-              <li onClick={() => this.handleClick('all')} className={this.setSelected('all')}>All Genres</li>
-              <li onClick={() => this.handleClick('fantasy')} className={this.setSelected('fantasy')}>Fantasy</li>
-              <li id='book-list-title'><i className="fas fa-book-reader"></i></li>
-              <li onClick={() => this.handleClick('fiction')} className={this.setSelected('fiction')}>Fiction</li>
-              <li onClick={() => this.handleClick('non-fiction')} className={this.setSelected('non-fiction')}>Non-Fiction</li>
+              {this.renderGenres()}
             </ul>
             <div className="books-list">
-
-                  { this.renderGenreBooks(this.state.selectedGenre) }
+                { this.renderGenreBooks(this.state.selectedGenre) }
             </div>
            </div>
         </div>
@@ -108,10 +116,11 @@ const mapStateToProps = (state) => ({
   books: state.books,
   user: state.user,
   shelves: state.userBookshelves,
+  genres: state.genres,
 });
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchBooks, fetchShelves }, dispatch);
+  return bindActionCreators({ fetchBooks, fetchShelves, fetchGenres }, dispatch);
 }
 
 
