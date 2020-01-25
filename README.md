@@ -1,7 +1,9 @@
 # GreatReads
-** For full accessibility, create an account or use this guest login:
-username: guest@guest.com
-pass: password
+For full accessibility, create an account or use this guest login:
+
+**username: guest@guest.com**
+
+**pass: password**
 
 Check it out [Live](https://great-reads-nick-galluzzo.herokuapp.com/)
 
