@@ -63,16 +63,29 @@ The dropdown form compiles all of the user's bookshelves and lists the options.
 
 `selectedOption: null`
 
-The shelf container passes awareness of the current shelf to the shelf components through the react state. The shelf components update their background color if the submission is successful in the redux state without page re-load.
+The shelf form container passes awareness of the selectedOption to the shelf components through the react state. The shelf components update their background color if the submission is successful in the redux state without page re-load.
 
 ````
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.shelves !== this.props.shelves) {
       const shelf = this.state.selectedShelf;
       this.setState({[shelf + 'Shelf']: true });
-      this.renderShelfState();
     }
   }
+````
+
+On component mount, if the book is in a user's shelf, the React state is updated and the appropriate style is displayed.
+
+````
+renderShelfState(shelfName) {
+  ...
+  const currentShelf = this.props.shelves.find((shelf) => shelf[shelfName])[shelfName]
+  const currentBook = currentShelf.books.find((book) => this.props.book.id === book.id)
+    if (currentBook) {
+      this.setState({[shelfName + 'Shelf']: true})
+      }
+    ...
+    }
 ````
 
 ### Reviews
