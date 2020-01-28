@@ -1,6 +1,6 @@
 class Api::BookshelvesController < ApplicationController
   def index
-    @bookshelves = Bookshelf.where(user_id: params[:user_id])
+    @bookshelves = Bookshelf.where(user_id: params[:user_id]).includes(:user)
     render :index
   end
 

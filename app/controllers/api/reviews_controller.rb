@@ -4,7 +4,7 @@ class Api::ReviewsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
 
   def index
-    @reviews = Review.where(book_id: params[:book_id])
+    @reviews = Review.where(book_id: params[:book_id]).includes(:user)
     render :index
   end
 
