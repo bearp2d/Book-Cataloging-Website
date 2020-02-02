@@ -21,23 +21,12 @@ class Book < ApplicationRecord
 
   # all books from book's author
   def other_books
-    other_books = []
-
-    author.books.each do |book|
-      other_books << book unless book == self
-    end
-
-    other_books
+    author.books.where.not(id: self)
   end
 
-  # Books from same genre
+  # suggested books from same genre
   def suggested_books
-    books = genre.books.sample(6)
-      until books == books.uniq
-        books = genre.books.sample(6)
-      end
-
-    books
+    genre.books.distinct.limit(6)
   end
 
   private
