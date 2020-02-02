@@ -32,10 +32,6 @@ class SelectForm extends React.Component {
     })
   }
 
-  handleClick () {
-    this.props.fetchShelves(this.props.user)
-  }
-
   handleSubmit(event) {
     event.preventDefault();
     this.props.createSubscription(this.state.selectedShelfId, this.props.book.id)
