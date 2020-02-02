@@ -5,7 +5,6 @@ import BookList from '../containers/book_list';
 import BookShow from '../containers/book_show';
 import AuthorShow from '../containers/author_show';
 import ReviewNew from '../containers/review_new';
-import UserNew from '../containers/user_new';
 import UserShelves from '../containers/user_shelves';
 
 const App = (props) => {
