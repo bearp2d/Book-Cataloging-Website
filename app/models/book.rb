@@ -32,6 +32,6 @@ class Book < ApplicationRecord
   private
 
   def ratings
-    reviews.where(id: self)
+    self.reviews.map(&:rating)
   end
 end
