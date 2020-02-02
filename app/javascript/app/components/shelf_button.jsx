@@ -20,7 +20,7 @@ class ShelfButton extends React.Component {
         this.renderShelfState('current');
         this.renderShelfState('read');
         this.renderShelfState('want');
-      }, 200);
+      }, 300);
     }
 
   renderShelfState(shelfName) {

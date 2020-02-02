@@ -60,7 +60,7 @@ class SelectForm extends React.Component {
               />
           </legend>
         </fieldset>
-        <button onClick={() => this.handleClick()}className="submit-shelf-button" disabled={userCheck}>Add To Shelf</button>
+        <button className="submit-shelf-button" disabled={userCheck}>Add To Shelf</button>
         </form>
       </div>
     );
