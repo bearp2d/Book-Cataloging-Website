@@ -8,9 +8,6 @@ class Api::ReviewsController < ApplicationController
     render :index
   end
 
-  def show
-  end
-
   def create
     review = Review.new(review_params)
     review.user = current_user
