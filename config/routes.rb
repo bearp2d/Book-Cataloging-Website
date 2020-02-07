@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :authors, only: :show
     resources :bookshelves, only: [:show]
     resources :genres, only: [:index, :show ]
-    resources :reviews, only: [:show, :update, :destroy]
+    resources :reviews, only: [:update, :destroy]
     resources :booksubscriptions, only: [ :index, :create, :destroy ]
   end
 end
